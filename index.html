@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalani — Bali Villa Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+:root{
+  --cream:#FAF8F5;
+  --linen:#F2EDE6;
+  --greige:#E8E0D5;
+  --taupe:#C9BFB2;
+  --warm-gray:#A89E94;
+  --charcoal:#2C2825;
+  --dark:#1A1714;
+  --sage:#7D9B76;
+  --sage-light:#A8C4A2;
+  --sage-dark:#567050;
+  --nude:#D4C4B5;
+  --muted:#8C847C;
+  --border:rgba(44,40,37,0.1);
+  --border-light:rgba(44,40,37,0.06);
+}
+
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  background:var(--cream);
+  color:var(--charcoal);
+  font-size:18px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:'Playfair Display',Georgia,serif;
+  font-weight:300;
+  line-height:1.1;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1.4rem 3.5rem;
+  transition:all 0.4s;
+  mix-blend-mode:normal;
+}
+nav.scrolled{
+  background:rgba(250,248,245,0.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border-light);
+  padding:1rem 3.5rem;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  font-weight:400;
+  letter-spacing:0.04em;
+  color:var(--cream);
+  text-decoration:none;
+  text-transform:none;
+  transition:color 0.3s;
+}
+nav.scrolled .nav-logo{color:var(--charcoal)}
+.nav-links{
+  display:flex;
+  gap:2.5rem;
+  list-style:none;
+}
+.nav-links a{
+  text-decoration:none;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-weight:400;
+  color:rgba(250,248,245,0.75);
+  transition:color 0.2s;
+}
+nav.scrolled .nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--sage-light) !important}
+.nav-cta{
+  font-size:0.68rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  font-weight:400;
+  color:var(--cream);
+  border:1px solid rgba(250,248,245,0.4);
+  padding:0.55rem 1.3rem;
+  border-radius:40px;
+  transition:all 0.25s;
+}
+nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
+.nav-cta:hover{background:var(--sage);border-color:var(--sage);color:var(--cream) !important}
+
+/* ── HERO ── */
+.hero{
+  height:100vh;
+  min-height:720px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-video-wrap{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+.hero-video-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(160deg,#3a3530 0%,#2a2520 40%,#1e2420 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.video-play-hint{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  color:rgba(255,255,255,0.2);
+}
+.play-circle{
+  width:72px;height:72px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.25);
+}
+.video-label{
+  font-size:0.68rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(26,23,20,0.85) 0%,
+    rgba(26,23,20,0.35) 45%,
+    rgba(26,23,20,0.1) 100%
+  );
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:0 3.5rem 6rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:flex-end;
+}
+.hero-left{}
+.hero-eyebrow{
+  font-size:0.66rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--sage-light);
+  font-weight:400;
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+  margin-bottom:1.2rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--sage-light)}
+.hero h1{
+  font-size:clamp(2.8rem,5.5vw,5rem);
+  font-weight:300;
+  color:var(--cream);
+  letter-spacing:-0.01em;
+  line-height:1.08;
+  margin-bottom:1.8rem;
+}
+.hero h1 em{font-style:italic;color:var(--sage-light)}
+
+.hero-tagline{
+  font-size:1rem;
+  color:rgba(250,248,245,0.6);
+  font-weight:300;
+  line-height:1.65;
+  max-width:480px;
+  margin-bottom:2rem;
+  letter-spacing:0.01em;
+}
+.hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap}
+.btn-pill{
+  display:inline-block;
+  padding:0.8rem 2rem;
+  border-radius:40px;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  font-weight:400;
+  text-decoration:none;
+  transition:all 0.25s;
+  cursor:pointer;
+  font-family:'Jost',sans-serif;
+  border:none;
+}
+.btn-sage{background:var(--sage);color:var(--cream)}
+.btn-sage:hover{background:var(--sage-dark);transform:translateY(-1px)}
+.btn-outline-light{background:transparent;color:var(--cream);border:1px solid rgba(250,248,245,0.35)}
+.btn-outline-light:hover{background:rgba(250,248,245,0.1);border-color:rgba(250,248,245,0.6)}
+.btn-outline-dark{background:transparent;color:var(--charcoal);border:1px solid var(--border);border-radius:40px;display:inline-block;padding:0.8rem 2rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;text-decoration:none;transition:all 0.25s;cursor:pointer;font-family:'Jost',sans-serif}
+.btn-outline-dark:hover{background:var(--charcoal);color:var(--cream)}
+
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  gap:0.6rem;
+  align-items:flex-end;
+}
+.hero-stat-card{
+  background:rgba(250,248,245,0.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(250,248,245,0.25);
+  border-radius:12px;
+  padding:1rem 1.4rem;
+  text-align:right;
+  width:180px;
+}
+.hero-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+  font-weight:300;
+  color:var(--cream);
+  display:block;
+  line-height:1;
+}
+.hero-stat-label{
+  font-size:0.62rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(250,248,245,0.45);
+  display:block;
+  margin-top:0.2rem;
+}
+
+/* scroll indicator */
+.scroll-hint{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.5rem;
+  color:rgba(250,248,245,0.35);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,rgba(250,248,245,0.4),transparent);
+  animation:scrollAnim 1.8s ease-in-out infinite;
+}
+@keyframes scrollAnim{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ── INTRO STRIP ── */
+.intro-strip{
+  background:var(--linen);
+  padding:2rem 3.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  border-bottom:1px solid var(--border-light);
+}
+.intro-strip-text{
+  font-size:0.9rem;
+  color:var(--muted);
+  font-style:italic;
+  font-family:'Playfair Display',serif;
+  font-weight:300;
+  max-width:500px;
+}
+.intro-strip-logos{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  opacity:0.3;
+  filter:grayscale(1);
+  flex-shrink:0;
+}
+.logo-badge{
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--charcoal);
+  border:1px solid var(--border);
+  padding:0.35rem 0.8rem;
+  border-radius:3px;
+}
+
+/* ── SECTION COMMONS ── */
+.eyebrow{
+  font-size:0.66rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--sage);
+  font-weight:400;
+  margin-bottom:1rem;
+  display:flex;
+  align-items:center;
+  gap:0.7rem;
+}
+.eyebrow-line{height:1px;width:28px;background:var(--sage);display:block;flex-shrink:0}
+.section-title{
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:300;
+  color:var(--charcoal);
+  line-height:1.12;
+  margin-bottom:1rem;
+}
+.section-title em{font-style:italic;color:var(--sage-dark)}
+.section-body{
+  font-size:1.05rem;
+  color:var(--muted);
+  line-height:1.8;
+  max-width:520px;
+}
+
+/* ── WHY SECTION ── */
+.why{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+.why-visual{
+  position:relative;
+  overflow:hidden;
+  background:var(--greige);
+}
+.why-video-placeholder{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#d4c8b8 0%,#c0b5a5 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.why-video-text{
+  font-size:0.62rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:rgba(44,40,37,0.3);
+  font-family:'Jost',sans-serif;
+  text-align:center;
+  line-height:2;
+}
+.why-img-overlay{
+  position:absolute;bottom:2rem;left:2rem;right:2rem;
+}
+.why-caption-card{
+  background:rgba(250,248,245,0.88);
+  backdrop-filter:blur(12px);
+  border-radius:12px;
+  padding:1.2rem 1.5rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.caption-icon{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cream);
+  font-size:1rem;
+  flex-shrink:0;
+}
+.caption-text{font-size:0.8rem;color:var(--charcoal);line-height:1.4}
+.caption-text strong{display:block;font-weight:500;font-size:0.9rem}
+
+.why-content{
+  padding:7rem 4.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:var(--linen);
+}
+.why-stats-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+  margin-top:3rem;
+}
+.why-stat{
+  padding:1.4rem;
+  background:var(--cream);
+  border-radius:12px;
+  border:1px solid var(--border-light);
+}
+.why-stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  font-weight:300;
+  color:var(--charcoal);
+  display:block;line-height:1;
+}
+.why-stat-label{
+  font-size:0.82rem;color:var(--muted);margin-top:0.4rem;display:block;
+}
+
+/* ── BOUTIQUE ── */
+.boutique{
+  padding:8rem 3.5rem;
+  background:var(--cream);
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:6rem;
+  align-items:center;
+}
+.features-list{display:flex;flex-direction:column;gap:0}
+.feature{
+  padding:1.5rem 0;
+  border-bottom:1px solid var(--border-light);
+  display:flex;
+  gap:1.2rem;
+  align-items:flex-start;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.feature:first-child{border-top:1px solid var(--border-light)}
+.feature:hover .feature-title{color:var(--sage-dark)}
+.feature-num{
+  font-family:'Playfair Display',serif;
+  font-size:0.9rem;
+  color:var(--taupe);
+  font-style:italic;
+  min-width:28px;
+  padding-top:0.1rem;
+}
+.feature-title{
+  font-size:0.95rem;
+  font-weight:400;
+  color:var(--charcoal);
+  margin-bottom:0.3rem;
+  transition:color 0.2s;
+}
+.feature-text{font-size:0.92rem;color:var(--muted);line-height:1.65}
+
+/* ── PROJECTS ── */
+.projects{
+  padding:8rem 3.5rem;
+  background:var(--linen);
+}
+.projects-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:3.5rem;
+}
+.projects-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:1.2rem;
+}
+.proj-card{
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--cream);
+  border:1px solid var(--border-light);
+  transition:transform 0.3s,box-shadow 0.3s;
+  cursor:pointer;
+}
+.proj-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 50px rgba(44,40,37,0.09);
+}
+.proj-card:first-child{grid-row:span 1}
+.proj-img{
+  position:relative;
+  overflow:hidden;
+}
+.proj-card:first-child .proj-img{height:320px}
+.proj-card:not(:first-child) .proj-img{height:220px}
+.proj-img-bg{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#c8bba8 0%,#b0a494 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.proj-card:nth-child(2) .proj-img-bg{background:linear-gradient(135deg,#b8c4b0 0%,#9aad92 100%)}
+.proj-card:nth-child(3) .proj-img-bg{background:linear-gradient(135deg,#d4c0b0 0%,#bba898 100%)}
+.proj-img-label{
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(44,40,37,0.25);
+  font-family:'Jost',sans-serif;
+  text-align:center;
+}
+.proj-badge{
+  position:absolute;
+  top:1rem;left:1rem;
+  font-size:0.6rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  padding:0.3rem 0.8rem;
+  border-radius:20px;
+  font-weight:400;
+  font-family:'Jost',sans-serif;
+}
+.badge-sage{background:var(--sage);color:var(--cream)}
+.badge-nude{background:var(--nude);color:var(--charcoal)}
+.badge-muted{background:var(--greige);color:var(--muted)}
+.proj-body{padding:1.4rem 1.5rem}
+.proj-loc{
+  font-size:0.62rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:0.35rem;
+}
+.proj-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;
+  font-weight:300;
+  color:var(--charcoal);
+  margin-bottom:0.5rem;
+}
+.proj-desc{font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:1.1rem}
+.proj-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-top:1rem;
+  border-top:1px solid var(--border-light);
+}
+.proj-price{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;
+  font-weight:300;
+  color:var(--charcoal);
+}
+.proj-price span{font-size:0.65rem;color:var(--muted);display:block;margin-top:-2px;font-family:'Jost',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
+.proj-link{
+  font-size:0.68rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--sage-dark);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+  transition:gap 0.2s;
+}
+.proj-link:hover{gap:0.7rem}
+
+/* ── VIDEO SECTION ── */
+.video-section{
+  padding:8rem 3.5rem;
+  background:#8F8778;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.video-player{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  aspect-ratio:16/10;
+  background:#7D7668;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.video-thumb-overlay{
+  position:absolute;inset:0;
+  background:rgba(44,40,37,0.15);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1rem;
+}
+.video-play-btn{
+  width:64px;height:64px;
+  border-radius:50%;
+  background:rgba(250,248,245,0.7);
+  border:1px solid rgba(44,40,37,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  color:var(--charcoal);
+  transition:all 0.2s;
+  backdrop-filter:blur(4px);
+}
+.video-player:hover .video-play-btn{
+  background:var(--sage);
+  border-color:var(--sage);
+  transform:scale(1.08);
+}
+.video-duration{
+  font-size:0.65rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(250,248,245,0.55);
+}
+.video-label-bar{
+  position:absolute;
+  bottom:1.2rem;left:1.2rem;right:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.video-title-tag{
+  background:rgba(250,248,245,0.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(250,248,245,0.25);
+  padding:0.4rem 0.8rem;
+  border-radius:6px;
+  font-size:0.65rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:rgba(250,248,245,0.8);
+}
+
+.video-content .eyebrow{color:rgba(250,248,245,0.7)}
+.video-content .eyebrow-line{background:rgba(250,248,245,0.5)}
+.video-content .section-title{color:#FAF8F5}
+.video-content .section-body{color:rgba(250,248,245,0.62)}
+
+.video-clips{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.8rem;
+  margin-top:2rem;
+}
+.clip-thumb{
+  border-radius:10px;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  background:rgba(250,248,245,0.1);
+  border:1px solid rgba(250,248,245,0.18);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:0.5rem;
+  cursor:pointer;
+  transition:border-color 0.2s;
+  position:relative;
+}
+.clip-thumb:hover{border-color:rgba(250,248,245,0.4)}
+.clip-icon{color:rgba(250,248,245,0.5);font-size:1.3rem}
+.clip-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(250,248,245,0.45)}
+
+/* ── ROI CALC ── */
+.calc-section{
+  padding:8rem 3.5rem;
+  background:var(--cream);
+}
+.calc-inner{max-width:960px;margin:0 auto}
+.calc-header{text-align:center;margin-bottom:4rem}
+.calc-header .eyebrow{justify-content:center}
+.calc-header .eyebrow .eyebrow-line{display:none}
+.calc-wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  background:var(--linen);
+  border-radius:20px;
+  padding:3rem;
+  border:1px solid var(--border-light);
+}
+.calc-inputs{display:flex;flex-direction:column;gap:2rem}
+.calc-field{}
+.calc-field-label{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.7rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:0.8rem;
+}
+.calc-field-val{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;
+  font-weight:300;
+  color:var(--charcoal);
+}
+input[type="range"]{
+  -webkit-appearance:none;
+  width:100%;height:2px;
+  background:var(--greige);
+  border-radius:2px;outline:none;cursor:pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:var(--sage);
+  cursor:pointer;
+  border:2px solid var(--cream);
+  box-shadow:0 0 0 1px var(--sage);
+}
+.calc-range-labels{
+  display:flex;justify-content:space-between;
+  font-size:0.6rem;color:var(--taupe);margin-top:0.4rem;
+}
+.calc-output{
+  display:flex;flex-direction:column;gap:0;
+}
+.calc-output-title{
+  font-size:0.68rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+  font-weight:400;
+}
+.calc-metric{
+  padding:1.3rem 0;
+  border-bottom:1px solid var(--border-light);
+}
+.calc-metric:last-child{border-bottom:none}
+.calc-metric-label{
+  font-size:0.65rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;margin-bottom:0.3rem;
+}
+.calc-metric-val{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+  font-weight:300;
+  color:var(--charcoal);
+  display:block;line-height:1;
+}
+.calc-metric-val.accent{color:var(--sage-dark)}
+.calc-note{font-size:0.7rem;color:var(--taupe);margin-top:0.3rem;line-height:1.4}
+.calc-disclaimer{
+  text-align:center;margin-top:1.8rem;
+  font-size:0.72rem;color:var(--taupe);line-height:1.6;
+}
+
+/* ── PROCESS ── */
+.process{
+  padding:8rem 3.5rem;
+  background:var(--linen);
+}
+.process-header{text-align:center;max-width:560px;margin:0 auto 5rem}
+.process-header .eyebrow{justify-content:center}
+.process-header .eyebrow .eyebrow-line{display:none}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  position:relative;
+}
+.process-grid::after{
+  content:'';
+  position:absolute;
+  top:22px;left:calc(10% + 16px);right:calc(10% + 16px);
+  height:1px;
+  background:linear-gradient(to right,var(--sage-light),var(--taupe));
+}
+.proc-step{text-align:center;padding:0 0.8rem;position:relative;z-index:1}
+.proc-dot{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--cream);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.2rem;
+  font-size:0.75rem;
+  font-weight:400;
+  color:var(--muted);
+  position:relative;z-index:1;
+  transition:all 0.3s;
+}
+.proc-step:nth-child(1) .proc-dot,.proc-step:nth-child(2) .proc-dot{
+  background:var(--sage);
+  border-color:var(--sage);
+  color:var(--cream);
+}
+.proc-title{font-size:0.82rem;font-weight:400;color:var(--charcoal);margin-bottom:0.4rem}
+.proc-text{font-size:0.88rem;color:var(--muted);line-height:1.55}
+
+/* ── STORY ── */
+.story{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+.story-visual{
+  position:relative;
+  overflow:hidden;
+  background:var(--greige);
+}
+.story-photo-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#c8bba8 0%,#a89888 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.story-photo-label{
+  font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(44,40,37,0.25);font-family:'Jost',sans-serif;text-align:center;
+}
+.story-name-plate{
+  position:absolute;bottom:2rem;left:2rem;right:2rem;
+  background:rgba(250,248,245,0.9);
+  backdrop-filter:blur(12px);
+  border-radius:12px;
+  padding:1.2rem 1.5rem;
+}
+.founder-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:300;
+  color:var(--charcoal);
+  display:block;
+}
+.founder-role{
+  font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--sage);display:block;margin-top:0.2rem;
+}
+.story-content{
+  padding:7rem 4.5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--cream);
+}
+.story-pull{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:300;font-style:italic;
+  color:var(--charcoal);line-height:1.5;
+  border-left:2px solid var(--sage);
+  padding-left:1.5rem;
+  margin:2rem 0;
+}
+.story-text{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+.story-facts{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:3rem;border-top:1px solid var(--border-light);
+}
+.sf{
+  padding:1.5rem 0;
+  border-right:1px solid var(--border-light);
+  padding-right:1.5rem;margin-right:1.5rem;
+}
+.sf:last-child{border-right:none;padding-right:0;margin-right:0}
+.sf strong{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:300;color:var(--sage-dark);
+  display:block;line-height:1;
+}
+.sf span{font-size:0.65rem;color:var(--taupe);text-transform:uppercase;letter-spacing:0.1em;display:block;margin-top:0.3rem}
+
+/* ── TESTIMONIALS ── */
+.testimonials{
+  padding:8rem 3.5rem;
+  background:var(--greige);
+}
+.testi-header{text-align:center;max-width:520px;margin:0 auto 4rem}
+.testi-header .eyebrow{justify-content:center}
+.testi-header .eyebrow .eyebrow-line{display:none}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.testi-card{
+  background:var(--cream);
+  border-radius:16px;
+  padding:2rem;
+  border:1px solid var(--border-light);
+  transition:transform 0.25s;
+}
+.testi-card:hover{transform:translateY(-4px)}
+.testi-stars{color:var(--sage);font-size:0.75rem;letter-spacing:0.1em;margin-bottom:1rem}
+.testi-quote{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;font-style:italic;font-weight:300;
+  color:var(--charcoal);line-height:1.6;margin-bottom:1.5rem;
+}
+.testi-footer{
+  display:flex;align-items:center;gap:0.9rem;
+  padding-top:1.2rem;border-top:1px solid var(--border-light);
+}
+.testi-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--nude);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-size:0.9rem;color:var(--charcoal);flex-shrink:0;
+}
+.testi-card:nth-child(2) .testi-avatar{background:var(--sage-light);color:var(--cream)}
+.testi-card:nth-child(3) .testi-avatar{background:var(--greige)}
+.testi-name{font-size:0.85rem;font-weight:400;color:var(--charcoal);display:block}
+.testi-meta{font-size:0.7rem;color:var(--muted);display:block}
+.testi-roi{margin-left:auto;text-align:right}
+.testi-roi strong{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:300;color:var(--sage-dark);display:block;line-height:1;
+}
+.testi-roi span{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ── LEGAL ── */
+.legal{
+  padding:8rem 3.5rem;
+  background:var(--linen);
+}
+.legal-wrap{
+  display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start;
+}
+.legal-cards{display:flex;flex-direction:column;gap:1rem}
+.legal-card{
+  background:var(--cream);
+  border-radius:14px;padding:1.8rem;
+  border:1px solid var(--border-light);
+  position:relative;overflow:hidden;
+}
+.legal-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:var(--sage);
+}
+.legal-card:nth-child(2)::before{background:var(--taupe)}
+.legal-card:nth-child(3)::before{background:var(--greige)}
+.legal-tag{
+  font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--sage);background:rgba(125,155,118,0.1);
+  padding:0.25rem 0.7rem;border-radius:20px;
+  display:inline-block;margin-bottom:0.8rem;font-weight:400;
+}
+.legal-card-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:300;color:var(--charcoal);margin-bottom:0.6rem;
+}
+.legal-card-text{font-size:0.92rem;color:var(--muted);line-height:1.65}
+.legal-term{
+  font-size:0.72rem;color:var(--sage-dark);margin-top:0.8rem;
+  display:flex;align-items:center;gap:0.4rem;font-weight:400;
+}
+
+/* ── BOOKING ── */
+.booking{
+  padding:8rem 3.5rem;
+  background:#EAE4DC;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:center;
+}
+.booking-left .eyebrow{color:var(--sage-dark)}
+.booking-left .eyebrow-line{background:var(--sage-dark)}
+.booking-left .section-title{color:var(--charcoal)}
+.booking-left .section-body{color:var(--muted)}
+.booking-perks{display:flex;flex-direction:column;gap:0.8rem;margin-top:2rem}
+.perk{
+  display:flex;align-items:center;gap:0.8rem;
+  font-size:0.82rem;color:var(--muted);
+}
+.perk-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--sage);flex-shrink:0;
+}
+.booking-form-wrap{
+  background:rgba(250,248,245,0.7);
+  border:1px solid rgba(44,40,37,0.12);
+  border-radius:20px;
+  padding:2.5rem;
+}
+.form-steps{
+  display:flex;gap:0.5rem;margin-bottom:2rem;
+}
+.form-step-dot{
+  flex:1;height:2px;border-radius:1px;
+  background:rgba(44,40,37,0.15);
+}
+.form-step-dot.active{background:var(--sage)}
+.f-label{
+  display:block;font-size:0.65rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:0.5rem;font-weight:400;
+}
+.f-input{
+  width:100%;padding:0.85rem 1rem;
+  background:var(--cream);
+  border:1px solid rgba(44,40,37,0.15);
+  border-radius:8px;
+  color:var(--charcoal);
+  font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:300;
+  outline:none;transition:border-color 0.2s;
+  margin-bottom:1rem;
+}
+.f-input::placeholder{color:var(--taupe)}
+.f-input:focus{border-color:var(--sage)}
+.f-select{
+  width:100%;padding:0.85rem 1rem;
+  background:var(--cream);
+  border:1px solid rgba(44,40,37,0.15);
+  border-radius:8px;
+  color:var(--charcoal);
+  font-family:'Jost',sans-serif;font-size:0.9rem;font-weight:300;
+  outline:none;margin-bottom:1rem;cursor:pointer;
+}
+.f-select option{background:var(--cream)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.f-submit{
+  width:100%;padding:1rem;
+  background:var(--sage);
+  color:var(--cream);
+  border:none;border-radius:40px;
+  font-family:'Jost',sans-serif;
+  font-size:0.75rem;letter-spacing:0.16em;
+  text-transform:uppercase;font-weight:400;
+  cursor:pointer;transition:background 0.2s;
+  margin-top:0.5rem;
+}
+.f-submit:hover{background:var(--sage-dark)}
+.f-note{
+  text-align:center;font-size:0.7rem;
+  color:var(--muted);margin-top:0.8rem;
+}
+.booking-alt-links{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;margin-top:1.5rem;
+  font-size:0.75rem;color:var(--muted);
+}
+.booking-alt-links a{
+  color:var(--charcoal);text-decoration:none;
+  transition:color 0.2s;
+}
+.booking-alt-links a:hover{color:var(--sage-dark)}
+
+/* ── FAQ ── */
+.faq{
+  padding:8rem 3.5rem;
+  background:var(--cream);
+}
+.faq-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:start}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--border-light);cursor:pointer}
+.faq-item:first-child{border-top:1px solid var(--border-light)}
+.faq-q-row{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;padding:1.3rem 0;
+}
+.faq-q-text{
+  font-size:0.92rem;font-weight:300;color:var(--charcoal);
+  font-family:'Playfair Display',serif;
+}
+.faq-icon{
+  width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;color:var(--sage);flex-shrink:0;
+  transition:all 0.25s;
+}
+.faq-item.open .faq-icon{background:var(--sage);color:var(--cream);transform:rotate(45deg);border-color:var(--sage)}
+.faq-ans{
+  font-size:0.95rem;color:var(--muted);line-height:1.75;
+  max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;
+}
+.faq-item.open .faq-ans{max-height:300px;padding-bottom:1.2rem}
+
+/* ── FOOTER ── */
+footer{
+  background:#DED7CC;
+  padding:5rem 3.5rem 2.5rem;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.8fr 1fr 1fr 1fr;
+  gap:3rem;
+  margin-bottom:4rem;
+  padding-bottom:4rem;
+  border-bottom:1px solid rgba(44,40,37,0.12);
+}
+.f-brand-logo{
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-size:1.3rem;
+  letter-spacing:0.04em;
+  text-transform:none;
+  color:var(--charcoal);
+  text-decoration:none;
+  display:block;
+  margin-bottom:1rem;
+}
+.f-brand-logo em{font-style:normal;color:var(--sage)}
+.f-brand-text{font-size:0.82rem;color:var(--muted);line-height:1.7;max-width:220px;margin-bottom:1.5rem}
+.f-socials{display:flex;gap:0.7rem}
+.f-social{
+  width:34px;height:34px;
+  border-radius:50%;
+  border:1px solid rgba(44,40,37,0.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:0.7rem;
+  text-decoration:none;transition:all 0.2s;
+}
+.f-social:hover{border-color:var(--sage);color:var(--sage)}
+.f-col h5{
+  font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--warm-gray);margin-bottom:1.2rem;font-weight:400;
+}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.f-col a{
+  font-size:0.8rem;color:var(--muted);
+  text-decoration:none;transition:color 0.2s;
+}
+.f-col a:hover{color:var(--charcoal)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.68rem;color:var(--warm-gray);
+}
+.footer-legal{display:flex;gap:2rem}
+.footer-legal a{color:var(--muted);text-decoration:none}
+.footer-legal a:hover{color:var(--charcoal)}
+
+/* ── WA FLOAT ── */
+.wa-float{
+  position:fixed;bottom:1.8rem;right:1.8rem;
+  z-index:300;
+  display:flex;flex-direction:column;align-items:flex-end;gap:0.7rem;
+}
+.wa-tooltip{
+  background:var(--greige);color:var(--charcoal);
+  padding:0.55rem 1rem;border-radius:8px 8px 0 8px;
+  font-size:0.75rem;max-width:180px;text-align:right;line-height:1.4;
+  opacity:0;transform:translateY(4px);
+  animation:fadeWa 0.4s 2s forwards;
+}
+@keyframes fadeWa{to{opacity:1;transform:translateY(0)}}
+.wa-btn{
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.3);
+  text-decoration:none;transition:transform 0.2s;
+}
+.wa-btn:hover{transform:scale(1.08)}
+.wa-btn svg{width:26px;height:26px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.fade-up{animation:fadeUp 0.8s ease both}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.25s}
+.d3{animation-delay:0.4s}.d4{animation-delay:0.55s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero-content{grid-template-columns:1fr;padding:0 1.5rem 8rem}
+  .hero-right{display:none}
+  .why,.story{grid-template-columns:1fr}
+  .why-visual,.story-visual{min-height:380px}
+  .why-content,.story-content{padding:4rem 1.5rem}
+  .boutique{grid-template-columns:1fr;padding:5rem 1.5rem;gap:3rem}
+  .projects{padding:5rem 1.5rem}
+  .projects-grid{grid-template-columns:1fr}
+  .video-section{grid-template-columns:1fr;padding:5rem 1.5rem}
+  .calc-section{padding:5rem 1.5rem}
+  .calc-wrap{grid-template-columns:1fr}
+  .process{padding:5rem 1.5rem}
+  .process-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .process-grid::after{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .legal{padding:5rem 1.5rem}
+  .legal-wrap{grid-template-columns:1fr}
+  .booking{grid-template-columns:1fr;padding:5rem 1.5rem}
+  .faq{padding:5rem 1.5rem}
+  .faq-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:2rem}
+  footer{padding:3rem 1.5rem}
+  .story-facts{grid-template-columns:1fr 1fr}
+  .sf{padding:1rem 0;margin:0;border-right:none;border-bottom:1px solid var(--border-light)}
+}
+
+.proj-category-label{
+  display:flex;align-items:center;gap:0.7rem;
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;
+  margin-bottom:1.2rem;
+}
+.proj-cat-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+.proj-card-featured{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+}
+.proj-card-featured .proj-img{height:100% !important;min-height:320px}
+.proj-urgency-bar{
+  position:absolute;bottom:1rem;left:1rem;right:1rem;
+  background:rgba(250,248,245,0.88);
+  backdrop-filter:blur(8px);
+  border-radius:8px;padding:0.7rem 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.urgency-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.urgency-dots{display:flex;gap:0.4rem;align-items:center}
+.u-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--sage);
+  border:1px solid rgba(44,40,37,0.1);
+}
+.u-dot-sold{background:var(--greige);border-color:var(--taupe)}
+.proj-sold-section{
+  border-top:1px solid var(--border-light);
+  padding-top:3rem;
+}
+.proj-sold-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:1.8rem;gap:2rem;
+}
+.proj-sold-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
+.proj-sold-card{
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--border-light);
+  background:var(--cream);
+}
+.sold-img{
+  height:140px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.sold-overlay{
+  position:absolute;inset:0;
+  background:rgba(44,40,37,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.62rem;letter-spacing:0.28em;
+  text-transform:uppercase;color:rgba(250,248,245,0.7);
+  font-family:'Jost',sans-serif;font-weight:400;
+}
+.sold-body{padding:0.9rem 1rem}
+.proj-sold-more{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:var(--linen);padding:1.5rem;
+  text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">kalani</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#legal">Legal</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <div class="hero-video-placeholder">
+      <div class="video-play-hint">
+        <div class="play-circle">▶</div>
+        <div class="video-label">Aerial drone footage — Balangan / Nungalan</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-up">Boutique Villa Developer · Bali</div>
+      <h1 class="fade-up d1">Villas built with<br><em>intention.</em><br>Owned for return.</h1>
+      <p class="hero-tagline fade-up d2">Boutique villa developer in Bali, Indonesia. Small projects.<br>Serious craft. Built for investors who value quality over quantity.</p>
+      <div class="hero-actions fade-up d3">
+        <a href="#projects" class="btn-pill btn-sage">See Projects</a>
+        <a href="#booking" class="btn-pill btn-outline-light">Book a Free Call</a>
+      </div>
+    </div>
+    <div class="hero-right fade-up d3">
+      <div class="hero-stat-card">
+        <span class="hero-stat-num">25+</span>
+        <span class="hero-stat-label">Villas Delivered</span>
+      </div>
+      <div class="hero-stat-card">
+        <span class="hero-stat-num">15–19%</span>
+        <span class="hero-stat-label">Net ROI Range*</span>
+      </div>
+      <div class="hero-stat-card">
+        <span class="hero-stat-num">$155k</span>
+        <span class="hero-stat-label">Starting Price</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <p class="intro-strip-text">"We don't build hundreds of units. We build a handful of thoughtful villas per year — and we stand behind every single one."</p>
+  <div class="intro-strip-logos">
+    <span class="logo-badge">Airbnb Superhost</span>
+    <span class="logo-badge">Guest Favourite</span>
+    <span class="logo-badge">4.9 ★ Investor Rating</span>
+  </div>
+</div>
+
+<!-- WHY BALI -->
+<section class="why" id="about">
+  <div class="why-visual">
+    <div class="why-video-placeholder">
+      <div class="why-video-text">
+        [ Villa photography / drone footage ]<br>
+        Nungalan · Balangan · Canggu
+      </div>
+    </div>
+    <div class="why-img-overlay">
+      <div class="why-caption-card">
+        <div class="caption-icon">✦</div>
+        <div class="caption-text">
+          <strong>Airbnb-optimised from day one</strong>
+          Designed for bookings, not just beauty
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-content">
+    <div class="eyebrow"><span class="eyebrow-line"></span>Why Bali</div>
+    <h2 class="section-title">The most visited island.<br>Still <em>underbuilt</em><br>for quality.</h2>
+    <p class="section-body">Bali's tourism grows every year. But the supply of genuinely well-designed, properly built villas hasn't kept pace. We work in that gap — small projects, serious craft, every detail considered.</p>
+    <div class="why-stats-row">
+      <div class="why-stat">
+        <span class="why-stat-num">6M+</span>
+        <span class="why-stat-label">International visitors annually</span>
+      </div>
+      <div class="why-stat">
+        <span class="why-stat-num">68%</span>
+        <span class="why-stat-label">Average occupancy, managed villas</span>
+      </div>
+      <div class="why-stat">
+        <span class="why-stat-num">$155k</span>
+        <span class="why-stat-label">Entry price for a Kalani villa</span>
+      </div>
+      <div class="why-stat">
+        <span class="why-stat-num">26 yr</span>
+        <span class="why-stat-label">Lease term, Nungalan project</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOUTIQUE -->
+<section class="boutique">
+  <div>
+    <div class="eyebrow"><span class="eyebrow-line"></span>The Difference</div>
+    <h2 class="section-title">Boutique means<br>you can actually<br><em>talk to us.</em></h2>
+    <p class="section-body">No sales team. No intermediaries. Direct access to the developer — through the entire process, from first call to rental income.</p>
+    <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:2rem;display:inline-block">Talk to the Developer →</a>
+  </div>
+  <div class="features-list">
+    <div class="feature">
+      <span class="feature-num">01</span>
+      <div>
+        <div class="feature-title">Customisation Options</div>
+        <div class="feature-text">Influence finishes, tile selection, furniture style and certain layout elements before construction begins. You're not buying from a catalogue.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <span class="feature-num">02</span>
+      <div>
+        <div class="feature-title">Rain-Season Engineering</div>
+        <div class="feature-text">Most villa problems appear after the first rainy season. We build for climate — watertight from day one, minimal long-term maintenance.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <span class="feature-num">03</span>
+      <div>
+        <div class="feature-title">Full Management Post-Handover</div>
+        <div class="feature-text">Airbnb listing, dynamic pricing, housekeeping, maintenance, monthly reports — all in-house. You own, we operate.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <span class="feature-num">04</span>
+      <div>
+        <div class="feature-title">Transparent Construction</div>
+        <div class="feature-text">Weekly photo updates, milestone-based payments, and live site access. You always know exactly where your villa stands.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <span class="feature-num">05</span>
+      <div>
+        <div class="feature-title">Legally Structured from Day One</div>
+        <div class="feature-text">Licensed PPAT notary. Extension options secured in writing. No nominee structures. Independent legal review encouraged.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+  <!-- AVAILABLE NOW -->
+  <div class="projects-header">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-line"></span>Available Now</div>
+      <h2 class="section-title">Secure your unit<br><em>before it's gone.</em></h2>
+    </div>
+    <div style="max-width:300px;text-align:right">
+      <p style="font-size:0.9rem;color:var(--muted);line-height:1.6">Our last three projects sold out within weeks of launch. Units are allocated on a first-come basis.</p>
+      <p style="font-size:0.78rem;color:var(--sage-dark);margin-top:0.6rem;font-weight:500">↑ Rahime Cubes: all 4 units sold in under 6 weeks.</p>
+    </div>
+  </div>
+
+  <!-- Under Construction -->
+  <div class="proj-category-label">
+    <span class="proj-cat-dot" style="background:var(--sage)"></span>
+    Under Construction
+  </div>
+  <div class="projects-grid" style="margin-bottom:3.5rem">
+    <div class="proj-card proj-card-featured">
+      <div class="proj-img" style="height:340px">
+        <div class="proj-img-bg" style="background:linear-gradient(135deg,#c8bba8 0%,#a89888 100%)">
+          <div class="proj-img-label">[ Solara villa renders / site photography ]</div>
+        </div>
+        <div class="proj-badge badge-sage">5 of 6 Units Left</div>
+        <div class="proj-urgency-bar">
+          <div class="urgency-label">Units remaining</div>
+          <div class="urgency-dots">
+            <div class="u-dot u-dot-sold"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-loc">Bali · Under Construction</div>
+        <div class="proj-name">Solara</div>
+        <p class="proj-desc">Construction is underway right now. Buy in during the build phase and benefit from the best entry price — 1 unit already secured by an early investor.</p>
+        <div class="proj-footer">
+          <div class="proj-price">On Request <span>Price per unit</span></div>
+          <a href="#booking" class="proj-link">Secure a Unit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Off-Plan -->
+  <div class="proj-category-label">
+    <span class="proj-cat-dot" style="background:var(--nude)"></span>
+    Off-Plan — Build to Order
+  </div>
+  <div class="projects-grid" style="grid-template-columns:1fr 1fr;margin-bottom:4rem">
+    <div class="proj-card">
+      <div class="proj-img">
+        <div class="proj-img-bg" style="background:linear-gradient(135deg,#b8c4b0 0%,#8fa888 100%)">
+          <div class="proj-img-label">[ Villa Maihan rendering ]</div>
+        </div>
+        <div class="proj-badge badge-nude">3 of 3 Available</div>
+        <div class="proj-urgency-bar">
+          <div class="urgency-label">Units remaining</div>
+          <div class="urgency-dots">
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-loc">Balangan · Bukit Peninsula</div>
+        <div class="proj-name">Villa Maihan</div>
+        <p class="proj-desc">Ocean-view location on the Bukit. Built once your purchase is confirmed — you can still influence finishes and select customisation options. All 3 units available.</p>
+        <div class="proj-footer">
+          <div class="proj-price">$179,000 <span>From</span></div>
+          <a href="#booking" class="proj-link">Request Info →</a>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img">
+        <div class="proj-img-bg" style="background:linear-gradient(135deg,#c4b8a8 0%,#a89880 100%)">
+          <div class="proj-img-label">[ Villa Bayu rendering ]</div>
+        </div>
+        <div class="proj-badge badge-nude">3 Units Available</div>
+        <div class="proj-urgency-bar">
+          <div class="urgency-label">Units remaining</div>
+          <div class="urgency-dots">
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+            <div class="u-dot"></div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-loc">Bali · Off-Plan</div>
+        <div class="proj-name">Villa Bayu</div>
+        <p class="proj-desc">Three units available for early reservation. Off-plan entry gives you maximum customisation flexibility and the best price point before construction begins.</p>
+        <div class="proj-footer">
+          <div class="proj-price">On Request <span>Price per unit</span></div>
+          <a href="#booking" class="proj-link">Request Info →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sold Out / Track Record -->
+  <div class="proj-sold-section">
+    <div class="proj-sold-header">
+      <div class="eyebrow" style="color:var(--warm-gray)"><span class="eyebrow-line" style="background:var(--warm-gray)"></span>Track Record — Sold Out</div>
+      <p style="font-size:0.85rem;color:var(--muted);max-width:420px">Every project we have launched has sold out. Here's what we've delivered.</p>
+    </div>
+    <div class="proj-sold-grid">
+      <div class="proj-sold-card">
+        <div class="sold-img" style="background:linear-gradient(135deg,#c8b8a0 0%,#a89880 100%)">
+          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Tulum Mila ]</div>
+          <div class="sold-overlay">SOLD OUT</div>
+        </div>
+        <div class="sold-body">
+          <div class="proj-loc">Tulum Mila</div>
+          <div class="proj-name" style="font-size:1.05rem">2 of 2 Units Delivered</div>
+        </div>
+      </div>
+      <div class="proj-sold-card">
+        <div class="sold-img" style="background:linear-gradient(135deg,#b8c0b0 0%,#98a890 100%)">
+          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Rahime Cubes ]</div>
+          <div class="sold-overlay">SOLD OUT</div>
+        </div>
+        <div class="sold-body">
+          <div class="proj-loc">Rahime Cubes</div>
+          <div class="proj-name" style="font-size:1.05rem">4 of 4 Units Delivered</div>
+        </div>
+      </div>
+      <div class="proj-sold-card">
+        <div class="sold-img" style="background:linear-gradient(135deg,#d0c0a8 0%,#b0a088 100%)">
+          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Luxury Huts ]</div>
+          <div class="sold-overlay">SOLD OUT</div>
+        </div>
+        <div class="sold-body">
+          <div class="proj-loc">Luxury Huts</div>
+          <div class="proj-name" style="font-size:1.05rem">4 of 4 Units Delivered</div>
+        </div>
+      </div>
+      <div class="proj-sold-card proj-sold-more">
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:0.4rem">+ Further completed projects</div>
+        <a href="#booking" style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage-dark);text-decoration:none">Request full portfolio →</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+  <div class="video-player">
+    <div class="video-thumb-overlay">
+      <div class="video-play-btn">▶</div>
+      <div class="video-duration">2:34 · Founder Story</div>
+    </div>
+    <div class="video-label-bar">
+      <div class="video-title-tag">Kalani · Bali 2025</div>
+      <div class="video-title-tag">Nungalan Project</div>
+    </div>
+  </div>
+
+  <div class="video-content">
+    <div class="eyebrow"><span class="eyebrow-line"></span>Watch & See</div>
+    <h2 class="section-title" style="color:var(--cream)">See what we build.<br>Hear <em>why</em> we build it.</h2>
+    <p class="section-body">A 2-minute founder video. Construction walkthroughs. Investor testimonials. No stock footage, no actors — just real projects and honest numbers.</p>
+    <div class="video-clips">
+      <div class="clip-thumb">
+        <div class="clip-icon">▶</div>
+        <div class="clip-label">Nungalan Build</div>
+      </div>
+      <div class="clip-thumb">
+        <div class="clip-icon">▶</div>
+        <div class="clip-label">Murlan Walkthrough</div>
+      </div>
+      <div class="clip-thumb">
+        <div class="clip-icon">▶</div>
+        <div class="clip-label">Investor Interview</div>
+      </div>
+      <div class="clip-thumb">
+        <div class="clip-icon">▶</div>
+        <div class="clip-label">Bali Market 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="calc-section" id="roi">
+  <div class="calc-inner">
+    <div class="calc-header">
+      <div class="eyebrow">ROI Estimator</div>
+      <h2 class="section-title">Model your <em>return.</em></h2>
+      <p class="section-body" style="margin:0.8rem auto 0;text-align:center;max-width:420px">Adjust the inputs below. All figures are conservative estimates based on comparable Bali properties.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-inputs">
+        <div class="calc-field">
+          <div class="calc-field-label">Purchase Price <span class="calc-field-val" id="p-disp">$155,000</span></div>
+          <input type="range" min="155000" max="250000" step="5000" value="155000" id="p-in" oninput="calc()">
+          <div class="calc-range-labels"><span>$155k</span><span>$250k</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-label">Occupancy Rate <span class="calc-field-val" id="o-disp">68%</span></div>
+          <input type="range" min="50" max="85" step="1" value="68" id="o-in" oninput="calc()">
+          <div class="calc-range-labels"><span>50%</span><span>85%</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-label">Avg Nightly Rate <span class="calc-field-val" id="a-disp">$160</span></div>
+          <input type="range" min="100" max="280" step="5" value="160" id="a-in" oninput="calc()">
+          <div class="calc-range-labels"><span>$100</span><span>$280</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-label">Management Fee <span class="calc-field-val" id="m-disp">25%</span></div>
+          <input type="range" min="20" max="30" step="1" value="25" id="m-in" oninput="calc()">
+          <div class="calc-range-labels"><span>20%</span><span>30%</span></div>
+        </div>
+      </div>
+      <div class="calc-output">
+        <div class="calc-output-title">Your Estimated Returns</div>
+        <div class="calc-metric">
+          <span class="calc-metric-label">Gross Annual Revenue</span>
+          <span class="calc-metric-val" id="r-gross">$39,712</span>
+          <p class="calc-note">Nightly rate × occupancy × 365</p>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric-label">Net Annual Income*</span>
+          <span class="calc-metric-val" id="r-net">$27,798</span>
+          <p class="calc-note">After management, maintenance & taxes (~30%)</p>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric-label">Net ROI</span>
+          <span class="calc-metric-val accent" id="r-roi">17.9%</span>
+        </div>
+        <div class="calc-metric">
+          <span class="calc-metric-label">Payback Period</span>
+          <span class="calc-metric-val" id="r-pay" style="font-size:1.4rem">5.6 yrs</span>
+        </div>
+        <a href="#booking" class="btn-pill btn-sage" style="margin-top:1.5rem;text-align:center;display:block">Get the Full Investor Handbook →</a>
+      </div>
+    </div>
+    <p class="calc-disclaimer">* Estimates only. Actual returns vary by location, management quality, and seasonality.<br>Bear / base / bull scenarios available in our free Investor Handbook.</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="how">
+  <div class="process-header">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-title">From first call<br>to <em>rental income.</em></h2>
+  </div>
+  <div class="process-grid">
+    <div class="proc-step">
+      <div class="proc-dot">01</div>
+      <div class="proc-title">Consultation</div>
+      <p class="proc-text">30-min call. We understand your goals, budget, timeline and match you to the right project.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-dot">02</div>
+      <div class="proc-title">Reservation</div>
+      <p class="proc-text">Secure your unit with a deposit. Legal structure agreed upfront, independently reviewed.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-dot" style="background:var(--cream);color:var(--muted)">03</div>
+      <div class="proc-title">Design Input</div>
+      <p class="proc-text">Customise finishes, furniture and selected layout elements within the design framework.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-dot" style="background:var(--cream);color:var(--muted)">04</div>
+      <div class="proc-title">Construction</div>
+      <p class="proc-text">Weekly updates, milestone payments, live site webcam. Zero surprises.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-dot" style="background:var(--cream);color:var(--muted)">05</div>
+      <div class="proc-title">Earn</div>
+      <p class="proc-text">Handover → Airbnb listing → rental management → monthly income to your account.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-visual">
+    <div class="story-photo-bg">
+      <div class="story-photo-label">[ Founder photo — Bali ]</div>
+    </div>
+    <div class="story-name-plate">
+      <span class="founder-name">Your Name</span>
+      <span class="founder-role">Founder · Kalani Real Estate · Bali since 2021</span>
+    </div>
+  </div>
+  <div class="story-content">
+    <div class="eyebrow"><span class="eyebrow-line"></span>The Story</div>
+    <h2 class="section-title">Built on mistakes.<br><em>Earned</em> by experience.</h2>
+
+    <p class="story-text">I came to Bali during COVID as a digital nomad. The island was empty — and so were hundreds of villas. I started renting them, renovating them, listing them on Airbnb. It worked.</p>
+    <p class="story-text">Then I thought I was ready to build. I wasn't. My first project was a disaster — wrong architect, bad contracts, 150,000€ lost to a scam. I nearly walked away.</p>
+
+    <div class="story-pull">"I wish someone had told me what I'm telling you now."</div>
+
+    <p class="story-text">I didn't walk away. I figured it out. Today, Kalani builds small, careful, profitable villas — and I share everything I've learned with every investor who works with us.</p>
+
+    <div class="story-facts">
+      <div class="sf"><strong>3+</strong><span>Years in market</span></div>
+      <div class="sf"><strong>25+</strong><span>Villas built</span></div>
+      <div class="sf"><strong>€150k</strong><span>Lost learning</span></div>
+      <div class="sf"><strong>0</strong><span>Sales team</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="testi-header">
+    <div class="eyebrow">Investor Stories</div>
+    <h2 class="section-title">Real investors.<br><em>Real numbers.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"He told me the horror stories himself. That kind of honesty is rare — and it's exactly why I invested."</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">MK</div>
+        <div>
+          <span class="testi-name">Markus K. 🇩🇪</span>
+          <span class="testi-meta">Murlan · $160k invested</span>
+        </div>
+        <div class="testi-roi"><strong>17.2%</strong><span>Net ROI</span></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Monthly reports, honest updates when something slipped. I never felt left in the dark. The villa earns while I work in London."</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">SL</div>
+        <div>
+          <span class="testi-name">Sophie L. 🇬🇧</span>
+          <span class="testi-meta">Nungalan · $155k invested</span>
+        </div>
+        <div class="testi-roi"><strong>$2,650</strong><span>Avg/month net</span></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"The customisation options were a big deal. I could choose the tile, the furniture, even tweak the layout. It feels like mine."</p>
+      <div class="testi-footer">
+        <div class="testi-avatar">TD</div>
+        <div>
+          <span class="testi-name">Thomas D. 🇨🇭</span>
+          <span class="testi-meta">Murlan · $168k invested</span>
+        </div>
+        <div class="testi-roi"><strong>18.5%</strong><span>Net ROI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section class="legal" id="legal">
+  <div class="legal-wrap">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-line"></span>Legal Structures</div>
+      <h2 class="section-title">Can foreigners<br>own property<br>in Bali?<br><em>Yes.</em></h2>
+      <p class="section-body" style="margin-top:1rem">Two legal paths. Both transparent. No nominee structures — ever.</p>
+      <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:2rem;display:inline-block">Ask a Legal Question →</a>
+    </div>
+    <div class="legal-cards">
+      <div class="legal-card">
+        <div class="legal-tag">Most Common · 95% of Buyers</div>
+        <div class="legal-card-title">Leasehold (Hak Sewa)</div>
+        <p class="legal-card-text">Lease the land for 25–30 years with a secured extension option. You can rent, sell, or pass on the villa during that period. Fully legal, independently notarised.</p>
+        <div class="legal-term">→ Up to 80 years total with extensions</div>
+      </div>
+      <div class="legal-card" style="--sage:#B08D57">
+        <div class="legal-tag" style="color:var(--warm-gray);background:rgba(168,158,148,0.12)">For Larger Holdings</div>
+        <div class="legal-card-title">PT PMA Company Structure</div>
+        <p class="legal-card-text">Foreign-owned Indonesian company holds the property via HGB. Adds structure, separates liability, enables multiple holdings. Setup costs ~$3–5k. Recommended for investors holding several units.</p>
+        <div class="legal-term" style="color:var(--warm-gray)">→ 30 + extension periods = up to 80 years</div>
+      </div>
+      <div class="legal-card" style="background:var(--greige)">
+        <div class="legal-tag" style="color:var(--muted);background:rgba(44,40,37,0.07)">We Don't Offer This</div>
+        <div class="legal-card-title">Nominee Structures</div>
+        <p class="legal-card-text">Some developers use Indonesian citizens as nominees. This is technically illegal under Indonesian law and carries serious personal risk. Kalani does not use this structure and advises strongly against it.</p>
+        <div class="legal-term" style="color:var(--muted)">→ Not available through Kalani</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-left">
+    <div class="eyebrow"><span class="eyebrow-line"></span>Get Started</div>
+    <h2 class="section-title">Let's find the right<br>project <em>for you.</em></h2>
+    <p class="section-body">30-minute call. We'll walk you through the current projects, the numbers, and what ownership actually looks like. No pressure, no sales script.</p>
+    <div class="booking-perks">
+      <div class="perk"><div class="perk-dot"></div>We respond within 4 hours</div>
+      <div class="perk"><div class="perk-dot"></div>No obligation, no hard sell</div>
+      <div class="perk"><div class="perk-dot"></div>Direct access to the developer</div>
+      <div class="perk"><div class="perk-dot"></div>Investor Handbook sent after call</div>
+    </div>
+  </div>
+  <div>
+    <div class="booking-form-wrap">
+      <div class="form-steps">
+        <div class="form-step-dot active"></div>
+        <div class="form-step-dot active"></div>
+        <div class="form-step-dot"></div>
+      </div>
+      <div class="f-row">
+        <div>
+          <label class="f-label">First Name</label>
+          <input class="f-input" type="text" placeholder="Thomas">
+        </div>
+        <div>
+          <label class="f-label">Last Name</label>
+          <input class="f-input" type="text" placeholder="Müller">
+        </div>
+      </div>
+      <label class="f-label">Email</label>
+      <input class="f-input" type="email" placeholder="your@email.com">
+      <label class="f-label">WhatsApp Number</label>
+      <input class="f-input" type="tel" placeholder="+49 ...">
+      <div class="f-row">
+        <div>
+          <label class="f-label">Budget</label>
+          <select class="f-select">
+            <option value="">Select...</option>
+            <option>Under $200k</option>
+            <option>$200k – $400k</option>
+            <option>$400k+</option>
+          </select>
+        </div>
+        <div>
+          <label class="f-label">Timeframe</label>
+          <select class="f-select">
+            <option value="">Select...</option>
+            <option>Just exploring</option>
+            <option>3–6 months</option>
+            <option>Ready now</option>
+          </select>
+        </div>
+      </div>
+      <button class="f-submit">Book My Free Consultation</button>
+      <p class="f-note">No spam. No pressure. We reply within 4 hours.</p>
+    </div>
+    <div class="booking-alt-links">
+      <a href="#">💬 Chat on WhatsApp</a>
+      <span>or</span>
+      <a href="#">📅 Open Calendly</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-grid">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-line"></span>FAQ</div>
+      <h2 class="section-title">Questions we<br>get <em>every time.</em></h2>
+      <p class="section-body">Still have something else on your mind? Message us directly — we answer every question honestly.</p>
+      <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:2rem;display:inline-block">Ask Us Directly →</a>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open" onclick="faqToggle(this)">
+        <div class="faq-q-row">
+          <span class="faq-q-text">Can I really own a villa in Bali as a foreigner?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-ans">Yes — through leasehold or PT PMA structure, both fully legal. You cannot hold freehold land as a foreigner, but leasehold gives you full rights to use, rent, and sell the villa for 25–30 years with secured extension options. We walk through every legal step before you commit.</div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q-row">
+          <span class="faq-q-text">What happens when the lease expires?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-ans">Your lease includes a contractually secured extension option with pre-agreed terms. You can also sell the villa before expiry — buyers pay per remaining lease year. We structure all leases with extensions from day one so you're never caught off guard.</div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q-row">
+          <span class="faq-q-text">Can I customise my villa before it's built?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-ans">Yes — within the design framework. You can choose tile finishes, furniture collections, certain fixtures, and in some cases minor layout adjustments. This is a core advantage of boutique development over large pre-built projects.</div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q-row">
+          <span class="faq-q-text">Is 15–19% ROI actually realistic?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-ans">Our delivered projects have achieved net yields in that range — but it depends on location, occupancy, and nightly rate. We show bear, base and optimistic scenarios in our Investor Handbook and we never promise numbers we can't substantiate. Use the calculator above to model your own assumptions.</div>
+      </div>
+      <div class="faq-item" onclick="faqToggle(this)">
+        <div class="faq-q-row">
+          <span class="faq-q-text">What if something goes wrong during construction?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-ans">Milestone-based payments mean you only pay the next tranche when the previous stage is verified. If handover is delayed beyond 90 days, your escrowed final payment earns 8% p.a. until delivery. You'll have weekly updates and direct access to me throughout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#" class="f-brand-logo">kalani <em>·</em> real estate</a>
+      <p class="f-brand-text">Boutique villa developer in Bali, Indonesia. Small projects. Serious craft. Built for investors who value quality over quantity.</p>
+      <div class="f-socials">
+        <a href="#" class="f-social">IG</a>
+        <a href="#" class="f-social">in</a>
+        <a href="#" class="f-social">YT</a>
+        <a href="#" class="f-social">WA</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Projects</h5>
+      <ul>
+        <li><a href="#">Villa Nungalan</a></li>
+        <li><a href="#">Villa Maihan</a></li>
+        <li><a href="#">Murlan Collection</a></li>
+        <li><a href="#">Upcoming Projects</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="#">Investor Handbook</a></li>
+        <li><a href="#">Bali Legal Guide</a></li>
+        <li><a href="#">ROI Calculator</a></li>
+        <li><a href="#">Construction Progress</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Book a Call</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Kalani Real Estate Group · Bali, Indonesia · PT [Company] registered in Indonesia</p>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Risk Disclaimer</a>
+    </div>
+    <p>* ROI figures are estimates. Past performance does not guarantee future returns.</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<div class="wa-float">
+  <div class="wa-tooltip">Questions? We reply fast.</div>
+  <a href="https://wa.me/62XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20a%20Kalani%20villa." class="wa-btn" target="_blank">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<script>
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+function calc(){
+  var p=parseInt(document.getElementById('p-in').value);
+  var o=parseInt(document.getElementById('o-in').value)/100;
+  var a=parseInt(document.getElementById('a-in').value);
+  var m=parseInt(document.getElementById('m-in').value)/100;
+  document.getElementById('p-disp').textContent='$'+p.toLocaleString();
+  document.getElementById('o-disp').textContent=Math.round(o*100)+'%';
+  document.getElementById('a-disp').textContent='$'+a;
+  document.getElementById('m-disp').textContent=Math.round(m*100)+'%';
+  var gross=Math.round(a*o*365);
+  var net=Math.round(gross*(1-m-0.05));
+  var roi=(net/p*100).toFixed(1);
+  var pay=(p/net).toFixed(1);
+  document.getElementById('r-gross').textContent='$'+gross.toLocaleString();
+  document.getElementById('r-net').textContent='$'+net.toLocaleString();
+  document.getElementById('r-roi').textContent=roi+'%';
+  document.getElementById('r-pay').textContent=pay+' yrs';
+}
+
+function faqToggle(el){
+  document.querySelectorAll('.faq-item').forEach(function(i){if(i!==el)i.classList.remove('open')});
+  el.classList.toggle('open');
+}
+
+calc();
+</script>
+</body>
+</html>

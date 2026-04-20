@@ -16,14 +16,14 @@ html{scroll-behavior:smooth}
   --linen:#F2EDE6;
   --greige:#E8E0D5;
   --taupe:#C9BFB2;
-  --warm-gray:#A89E94;
+  --warm-gray:#7A7068;
   --charcoal:#2C2825;
   --dark:#1A1714;
   --sage:#7D9B76;
   --sage-light:#A8C4A2;
   --sage-dark:#567050;
   --nude:#D4C4B5;
-  --muted:#8C847C;
+  --muted:#5E5650;
   --border:rgba(44,40,37,0.1);
   --border-light:rgba(44,40,37,0.06);
 }
@@ -717,7 +717,7 @@ input[type="range"]::-webkit-slider-thumb{
 }
 .calc-range-labels{
   display:flex;justify-content:space-between;
-  font-size:0.6rem;color:var(--taupe);margin-top:0.4rem;
+  font-size:0.6rem;color:var(--muted);margin-top:0.4rem;
 }
 .calc-output{
   display:flex;flex-direction:column;gap:0;
@@ -1398,6 +1398,250 @@ footer{
   text-align:center;
 }
 
+
+/* ── ANIMATIONS & HOVER EFFECTS ── */
+
+/* Scroll reveal base */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.reveal-delay-1{ transition-delay:0.1s }
+.reveal-delay-2{ transition-delay:0.2s }
+.reveal-delay-3{ transition-delay:0.3s }
+.reveal-delay-4{ transition-delay:0.4s }
+
+/* Nav link underline slide */
+.nav-links a{
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;left:0;
+  width:0;height:1px;
+  background:var(--sage);
+  transition:width 0.25s ease;
+}
+.nav-links a:hover::after{ width:100% }
+
+/* Project cards – refined lift */
+.proj-card{
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+}
+.proj-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 48px rgba(44,40,37,0.11);
+}
+
+/* Project card image zoom on hover */
+.proj-img-bg{
+  transition:transform 0.5s ease;
+}
+.proj-card:hover .proj-img-bg{
+  transform:scale(1.04);
+}
+
+/* Feature items – sage left border on hover */
+.feature{
+  position:relative;
+  transition:padding-left 0.25s ease;
+}
+.feature::before{
+  content:'';
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:2px;
+  background:var(--sage);
+  transform:scaleY(0);
+  transform-origin:bottom;
+  transition:transform 0.3s ease;
+}
+.feature:hover::before{ transform:scaleY(1) }
+.feature:hover{ padding-left:0.8rem }
+
+/* Buttons – scale + smooth */
+.btn-pill{
+  transition:background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+}
+.btn-pill:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 8px 24px rgba(44,40,37,0.12);
+}
+.btn-pill:active{ transform:scale(0.98) }
+
+/* Testimonial cards */
+.testi-card{
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+}
+.testi-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(44,40,37,0.09);
+}
+
+/* Legal cards */
+.legal-card{
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.legal-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(44,40,37,0.08);
+}
+
+/* Why stats */
+.why-stat{
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+.why-stat:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(44,40,37,0.07);
+}
+
+/* Shimmer for image placeholders */
+@keyframes shimmer{
+  0%{ background-position:-400px 0 }
+  100%{ background-position:400px 0 }
+}
+.proj-img-bg,.why-video-placeholder,.story-photo-bg,.video-player{
+  background-size:800px 100%;
+}
+
+/* FAQ item hover */
+.faq-item{
+  transition:padding-left 0.2s ease;
+}
+.faq-item:hover{ padding-left:0.4rem }
+
+/* Story facts hover */
+.sf{
+  transition:background 0.2s ease;
+  border-radius:4px;
+}
+.sf:hover{ background:rgba(125,155,118,0.06) }
+
+/* Footer social */
+.f-social{
+  transition:transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.f-social:hover{ transform:translateY(-2px) }
+
+/* Process step dot pulse on hover */
+.proc-dot{
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.proc-step:hover .proc-dot{
+  transform:scale(1.15);
+  box-shadow:0 0 0 6px rgba(125,155,118,0.15);
+}
+
+/* Sold card hover */
+.proj-sold-card{
+  transition:transform 0.25s ease;
+}
+.proj-sold-card:hover{ transform:translateY(-3px) }
+
+/* Intro strip badges */
+.logo-badge{
+  transition:opacity 0.2s ease, transform 0.2s ease;
+}
+.logo-badge:hover{ opacity:0.6; transform:translateY(-1px) }
+
+
+/* ── MOBILE ANIMATIONS ── */
+
+/* 1. Swipeable project cards on mobile */
+@media(max-width:768px){
+  .projects-grid{
+    display:flex !important;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:1rem;
+    padding-bottom:1rem;
+    scrollbar-width:none;
+    grid-template-columns:unset !important;
+  }
+  .projects-grid::-webkit-scrollbar{ display:none }
+  .proj-card{
+    min-width:82vw;
+    scroll-snap-align:start;
+    flex-shrink:0;
+  }
+  .proj-card-featured{
+    min-width:82vw;
+    display:block !important;
+    grid-column:unset !important;
+  }
+  .proj-card-featured .proj-img{
+    height:220px !important;
+  }
+  /* Swipe hint indicator */
+  .swipe-hint{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.68rem;
+    color:var(--muted);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:0.8rem;
+    opacity:0.7;
+  }
+  .swipe-hint::after{
+    content:'';
+    display:block;
+    width:24px;height:1px;
+    background:var(--muted);
+    animation:swipeHint 1.5s ease-in-out 1s 3;
+  }
+  @keyframes swipeHint{
+    0%{transform:translateX(0);opacity:0.7}
+    50%{transform:translateX(6px);opacity:1}
+    100%{transform:translateX(0);opacity:0.7}
+  }
+
+  /* 2. ROI slider pulse on value change */
+  .calc-metric-val.pulse{
+    animation:valuePulse 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes valuePulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.08);color:var(--sage-dark)}
+    100%{transform:scale(1)}
+  }
+
+  /* 3. WA button pulse – once after 3s */
+  .mobile-cta-wa{
+    animation:waPulse 0.6s ease 3s 2;
+  }
+  @keyframes waPulse{
+    0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0.4)}
+    50%{transform:scale(1.12);box-shadow:0 0 0 8px rgba(37,211,102,0)}
+    100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0)}
+  }
+
+  /* Smoother FAQ accordion */
+  .faq-ans{
+    transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease !important;
+  }
+
+  /* Hero tagline word-by-word */
+  .hero-tagline .word{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(8px);
+    animation:wordIn 0.5s ease forwards;
+  }
+}
+@keyframes wordIn{
+  to{opacity:1;transform:translateY(0)}
+}
+
 </style>
 </head>
 <body>
@@ -1488,24 +1732,24 @@ footer{
     </div>
   </div>
   <div class="why-content">
-    <div class="eyebrow"><span class="eyebrow-line"></span>Why Bali</div>
+    <div class="eyebrow reveal"><span class="eyebrow-line"></span>Why Bali</div>
     <h2 class="section-title">The most visited island.<br>Still <em>underbuilt</em><br>for quality.</h2>
     <p class="section-body">Bali's tourism grows every year. But the supply of genuinely well-designed, properly built villas hasn't kept pace. We work in that gap — small projects, serious craft, every detail considered.</p>
     <div class="why-stats-row">
-      <div class="why-stat">
-        <span class="why-stat-num">6M+</span>
+      <div class="why-stat reveal">
+        <span class="why-stat-num" data-target="6" data-suffix="M+">0</span>
         <span class="why-stat-label">International visitors annually</span>
       </div>
-      <div class="why-stat">
-        <span class="why-stat-num">68%</span>
+      <div class="why-stat reveal reveal-delay-1">
+        <span class="why-stat-num" data-target="68" data-suffix="%">0</span>
         <span class="why-stat-label">Average occupancy, managed villas</span>
       </div>
-      <div class="why-stat">
-        <span class="why-stat-num">$155k</span>
+      <div class="why-stat reveal reveal-delay-2">
+        <span class="why-stat-num" data-target="155" data-prefix="$" data-suffix="k">0</span>
         <span class="why-stat-label">Entry price for a Kalani villa</span>
       </div>
-      <div class="why-stat">
-        <span class="why-stat-num">26 yr</span>
+      <div class="why-stat reveal reveal-delay-3">
+        <span class="why-stat-num" data-target="26" data-suffix=" yr">0</span>
         <span class="why-stat-label">Lease term, Nungalan project</span>
       </div>
     </div>
@@ -1578,9 +1822,10 @@ footer{
   <div class="proj-category-label">
     <span class="proj-cat-dot" style="background:var(--sage)"></span>
     Under Construction
+    <span class="swipe-hint" style="margin-left:auto">swipe</span>
   </div>
   <div class="projects-grid" style="margin-bottom:3.5rem">
-    <div class="proj-card proj-card-featured">
+    <div class="proj-card proj-card-featured reveal">
       <div class="proj-img" style="height:340px">
         <div class="proj-img-bg" style="background:linear-gradient(135deg,#c8bba8 0%,#a89888 100%)">
           <div class="proj-img-label">[ Solara villa renders / site photography ]</div>
@@ -1616,7 +1861,7 @@ footer{
     Off-Plan — Build to Order
   </div>
   <div class="projects-grid" style="grid-template-columns:1fr 1fr;margin-bottom:4rem">
-    <div class="proj-card">
+    <div class="proj-card reveal reveal-delay-1">
       <div class="proj-img">
         <div class="proj-img-bg" style="background:linear-gradient(135deg,#b8c4b0 0%,#8fa888 100%)">
           <div class="proj-img-label">[ Villa Maihan rendering ]</div>
@@ -1641,7 +1886,7 @@ footer{
         </div>
       </div>
     </div>
-    <div class="proj-card">
+    <div class="proj-card reveal reveal-delay-2">
       <div class="proj-img">
         <div class="proj-img-bg" style="background:linear-gradient(135deg,#c4b8a8 0%,#a89880 100%)">
           <div class="proj-img-label">[ Villa Bayu rendering ]</div>
@@ -1756,57 +2001,67 @@ footer{
 <section class="calc-section" id="roi">
   <div class="calc-inner">
     <div class="calc-header">
-      <div class="eyebrow">ROI Estimator</div>
+      <div class="eyebrow">ROI Calculator</div>
       <h2 class="section-title">Model your <em>return.</em></h2>
-      <p class="section-body" style="margin:0.8rem auto 0;text-align:center;max-width:420px">Adjust the inputs below. All figures are conservative estimates based on comparable Bali properties.</p>
+      <p class="section-body" style="margin:0.8rem auto 0;text-align:center;max-width:420px">Based on real Kalani project data. Adjust the three inputs to model your investment.</p>
     </div>
     <div class="calc-wrap">
       <div class="calc-inputs">
         <div class="calc-field">
-          <div class="calc-field-label">Purchase Price <span class="calc-field-val" id="p-disp">$155,000</span></div>
-          <input type="range" min="155000" max="250000" step="5000" value="155000" id="p-in" oninput="calc()">
-          <div class="calc-range-labels"><span>$155k</span><span>$250k</span></div>
+          <div class="calc-field-label">Villa Investment <span class="calc-field-val" id="p-disp">$179,000</span></div>
+          <input type="range" min="130000" max="250000" step="1000" value="179000" id="p-in" oninput="calc()">
+          <div class="calc-range-labels"><span>$130k</span><span>$250k</span></div>
         </div>
         <div class="calc-field">
-          <div class="calc-field-label">Occupancy Rate <span class="calc-field-val" id="o-disp">68%</span></div>
-          <input type="range" min="50" max="85" step="1" value="68" id="o-in" oninput="calc()">
-          <div class="calc-range-labels"><span>50%</span><span>85%</span></div>
+          <div class="calc-field-label">Daily Rental Rate <span class="calc-field-val" id="a-disp">$160 / night</span></div>
+          <input type="range" min="80" max="300" step="5" value="160" id="a-in" oninput="calc()">
+          <div class="calc-range-labels"><span>$80</span><span>$300</span></div>
         </div>
         <div class="calc-field">
-          <div class="calc-field-label">Avg Nightly Rate <span class="calc-field-val" id="a-disp">$160</span></div>
-          <input type="range" min="100" max="280" step="5" value="160" id="a-in" oninput="calc()">
-          <div class="calc-range-labels"><span>$100</span><span>$280</span></div>
+          <div class="calc-field-label">Occupancy Rate <span class="calc-field-val" id="o-disp">90%</span></div>
+          <input type="range" min="50" max="95" step="1" value="90" id="o-in" oninput="calc()">
+          <div class="calc-range-labels"><span>50%</span><span>95%</span></div>
         </div>
-        <div class="calc-field">
-          <div class="calc-field-label">Management Fee <span class="calc-field-val" id="m-disp">25%</span></div>
-          <input type="range" min="20" max="30" step="1" value="25" id="m-in" oninput="calc()">
-          <div class="calc-range-labels"><span>20%</span><span>30%</span></div>
+
+        <div style="margin-top:1rem;padding:1rem;background:rgba(44,40,37,0.04);border-radius:8px;border:1px solid var(--border-light)">
+          <div style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem">Monthly Running Costs (fixed)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.3rem 1rem">
+            <div style="font-size:0.78rem;color:var(--muted)">Electricity</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right">$140</div>
+            <div style="font-size:0.78rem;color:var(--muted)">Garden & Pool</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right">$70</div>
+            <div style="font-size:0.78rem;color:var(--muted)">Cleaning & Laundry</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right">$218</div>
+            <div style="font-size:0.78rem;color:var(--muted)">WiFi & Utilities</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right">$63</div>
+            <div style="font-size:0.78rem;color:var(--muted)">Airbnb Host Fee (3%)</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right" id="c-airbnb">$157</div>
+            <div style="font-size:0.78rem;color:var(--muted)">Management Fee (15%)</div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right" id="c-mgmt">$657</div>
+            <div style="font-size:0.78rem;color:var(--muted);display:flex;align-items:center;gap:0.3rem">Tax (PPh 10%) <span title="Indonesian income tax on rental income. Varies by legal structure (PT PMA vs. personal). Consult your tax advisor." style="width:14px;height:14px;border-radius:50%;border:1px solid var(--taupe);display:inline-flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--taupe);cursor:help;flex-shrink:0">i</span></div><div style="font-size:0.78rem;color:var(--charcoal);text-align:right" id="c-tax">$437</div>
+            <div style="font-size:0.78rem;font-weight:500;color:var(--charcoal);padding-top:0.4rem;border-top:1px solid var(--border-light)">Total costs / mo</div>
+            <div style="font-size:0.78rem;font-weight:500;color:var(--charcoal);text-align:right;padding-top:0.4rem;border-top:1px solid var(--border-light)" id="c-total">$1,305</div>
+          </div>
+          <p style="font-size:0.68rem;color:var(--muted);margin-top:0.6rem;line-height:1.5">* Tax varies by ownership structure. Consult your tax advisor for your specific situation.</p>
         </div>
       </div>
+
       <div class="calc-output">
-        <div class="calc-output-title">Your Estimated Returns</div>
+        <div class="calc-output-title">Your Estimated Returns — Year 1</div>
         <div class="calc-metric">
-          <span class="calc-metric-label">Gross Annual Revenue</span>
-          <span class="calc-metric-val" id="r-gross">$39,712</span>
-          <p class="calc-note">Nightly rate × occupancy × 365</p>
+          <span class="calc-metric-label">Profit per Month</span>
+          <span class="calc-metric-val accent" id="r-monthly">$2,575</span>
         </div>
         <div class="calc-metric">
-          <span class="calc-metric-label">Net Annual Income*</span>
-          <span class="calc-metric-val" id="r-net">$27,798</span>
-          <p class="calc-note">After management, maintenance & taxes (~30%)</p>
+          <span class="calc-metric-label">Profit per Year</span>
+          <span class="calc-metric-val" id="r-yearly">$30,900</span>
         </div>
         <div class="calc-metric">
-          <span class="calc-metric-label">Net ROI</span>
-          <span class="calc-metric-val accent" id="r-roi">17.9%</span>
+          <span class="calc-metric-label">ROI</span>
+          <span class="calc-metric-val accent" id="r-roi">17%</span>
         </div>
-        <div class="calc-metric">
-          <span class="calc-metric-label">Payback Period</span>
-          <span class="calc-metric-val" id="r-pay" style="font-size:1.4rem">5.6 yrs</span>
+        <div class="calc-metric" style="border-bottom:none">
+          <span class="calc-metric-label">Break Even</span>
+          <span class="calc-metric-val" id="r-breakeven" style="font-size:1.5rem">5.8 years</span>
         </div>
-        <a href="#booking" class="btn-pill btn-sage" style="margin-top:1.5rem;text-align:center;display:block">Get the Full Investor Handbook →</a>
+        <a href="#booking" class="btn-pill btn-sage" style="margin-top:1.5rem;text-align:center;display:block">Get the Full Investment Report →</a>
       </div>
     </div>
-    <p class="calc-disclaimer">* Estimates only. Actual returns vary by location, management quality, and seasonality.<br>Bear / base / bull scenarios available in our free Investor Handbook.</p>
+
   </div>
 </section>
 
@@ -1817,27 +2072,27 @@ footer{
     <h2 class="section-title">From first call<br>to <em>rental income.</em></h2>
   </div>
   <div class="process-grid">
-    <div class="proc-step">
+    <div class="proc-step reveal">
       <div class="proc-dot">01</div>
       <div class="proc-title">Consultation</div>
       <p class="proc-text">30-min call. We understand your goals, budget, timeline and match you to the right project.</p>
     </div>
-    <div class="proc-step">
+    <div class="proc-step reveal reveal-delay-1">
       <div class="proc-dot">02</div>
       <div class="proc-title">Reservation</div>
       <p class="proc-text">Secure your unit with a deposit. Legal structure agreed upfront, independently reviewed.</p>
     </div>
-    <div class="proc-step">
+    <div class="proc-step reveal reveal-delay-2">
       <div class="proc-dot" style="background:var(--cream);color:var(--muted)">03</div>
       <div class="proc-title">Design Input</div>
       <p class="proc-text">Customise finishes, furniture and selected layout elements within the design framework.</p>
     </div>
-    <div class="proc-step">
+    <div class="proc-step reveal reveal-delay-3">
       <div class="proc-dot" style="background:var(--cream);color:var(--muted)">04</div>
       <div class="proc-title">Construction</div>
       <p class="proc-text">Weekly updates, milestone payments, live site webcam. Zero surprises.</p>
     </div>
-    <div class="proc-step">
+    <div class="proc-step reveal reveal-delay-4">
       <div class="proc-dot" style="background:var(--cream);color:var(--muted)">05</div>
       <div class="proc-title">Earn</div>
       <p class="proc-text">Handover → Airbnb listing → rental management → monthly income to your account.</p>
@@ -1857,7 +2112,7 @@ footer{
     </div>
   </div>
   <div class="story-content">
-    <div class="eyebrow"><span class="eyebrow-line"></span>The Story</div>
+    <div class="eyebrow reveal"><span class="eyebrow-line"></span>The Story</div>
     <h2 class="section-title">Built on mistakes.<br><em>Earned</em> by experience.</h2>
 
     <p class="story-text">I came to Bali during COVID as a digital nomad. The island was empty — and so were hundreds of villas. I started renting them, renovating them, listing them on Airbnb. It worked.</p>
@@ -1868,10 +2123,10 @@ footer{
     <p class="story-text">I didn't walk away. I figured it out. Today, Kalani builds small, careful, profitable villas — and I share everything I've learned with every investor who works with us.</p>
 
     <div class="story-facts">
-      <div class="sf"><strong>3+</strong><span>Years in market</span></div>
-      <div class="sf"><strong>25+</strong><span>Villas built</span></div>
-      <div class="sf"><strong>€150k</strong><span>Lost learning</span></div>
-      <div class="sf"><strong>0</strong><span>Sales team</span></div>
+      <div class="sf"><strong data-target="3" data-suffix="+" data-prefix="">0</strong><span>Years in market</span></div>
+      <div class="sf"><strong data-target="25" data-suffix="+" data-prefix="">0</strong><span>Villas built</span></div>
+      <div class="sf"><strong data-target="150" data-suffix="k" data-prefix="€">0</strong><span>Lost learning</span></div>
+      <div class="sf"><strong data-target="9" data-suffix="">0</strong><span>Villas under construction</span></div>
     </div>
   </div>
 </section>
@@ -1883,7 +2138,7 @@ footer{
     <h2 class="section-title">Real investors.<br><em>Real numbers.</em></h2>
   </div>
   <div class="testi-grid">
-    <div class="testi-card">
+    <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-quote">"He told me the horror stories himself. That kind of honesty is rare — and it's exactly why I invested."</p>
       <div class="testi-footer">
@@ -1895,7 +2150,7 @@ footer{
         <div class="testi-roi"><strong>17.2%</strong><span>Net ROI</span></div>
       </div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card reveal reveal-delay-1">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-quote">"Monthly reports, honest updates when something slipped. I never felt left in the dark. The villa earns while I work in London."</p>
       <div class="testi-footer">
@@ -1907,7 +2162,7 @@ footer{
         <div class="testi-roi"><strong>$2,650</strong><span>Avg/month net</span></div>
       </div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card reveal reveal-delay-2">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-quote">"The customisation options were a big deal. I could choose the tile, the furniture, even tweak the layout. It feels like mine."</p>
       <div class="testi-footer">
@@ -2129,27 +2384,157 @@ footer{
 </div>
 
 <script>
+
+
+
+// ── MOBILE ANIMATIONS JS ──
+
+// ROI slider pulse on mobile
+function addPulse(id){
+  if(window.innerWidth > 768) return;
+  var el = document.getElementById(id);
+  if(!el) return;
+  el.classList.remove('pulse');
+  void el.offsetWidth; // reflow
+  el.classList.add('pulse');
+}
+
+// Override calc to add pulse
+var origCalc = calc;
+calc = function(){
+  origCalc();
+  ['r-monthly','r-yearly','r-roi','r-breakeven'].forEach(addPulse);
+};
+
+// Hero tagline word animation on mobile
+function animateTagline(){
+  if(window.innerWidth > 768) return;
+  var tagline = document.querySelector('.hero-tagline');
+  if(!tagline || tagline.dataset.animated) return;
+  tagline.dataset.animated = 'true';
+  var text = tagline.textContent;
+  var words = text.split(' ');
+  tagline.innerHTML = words.map(function(w, i){
+    return '<span class="word" style="animation-delay:' + (0.3 + i * 0.08) + 's">' + w + ' </span>';
+  }).join('');
+}
+window.addEventListener('load', animateTagline);
+
+// ── SCROLL REVEAL ──
+function revealOnScroll(){
+  var els = document.querySelectorAll('.reveal');
+  els.forEach(function(el){
+    var rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.88){
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll, {passive:true});
+window.addEventListener('load', revealOnScroll);
+
+// ── COUNTER ANIMATION ON SCROLL ──
+function animateCounter(el) {
+  var target  = parseFloat(el.getAttribute('data-target'));
+  var prefix  = el.getAttribute('data-prefix') || '';
+  var suffix  = el.getAttribute('data-suffix') || '';
+  var duration = 1800;
+  var steps   = 60;
+  var stepTime = duration / steps;
+  var current = 0;
+  var increment = target / steps;
+  var timer = setInterval(function() {
+    current += increment;
+    if(current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    var display = Number.isInteger(target) ? Math.round(current) : current.toFixed(1);
+    el.textContent = prefix + display + suffix;
+  }, stepTime);
+}
+
+function checkCounters() {
+  var els = document.querySelectorAll('[data-target]');
+  els.forEach(function(el) {
+    if(el.dataset.animated) return;
+    var rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.85) {
+      el.dataset.animated = 'true';
+      animateCounter(el);
+    }
+  });
+}
+
+window.addEventListener('scroll', checkCounters, {passive: true});
+window.addEventListener('load', checkCounters);
+
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 });
 
 function calc(){
-  var p=parseInt(document.getElementById('p-in').value);
-  var o=parseInt(document.getElementById('o-in').value)/100;
-  var a=parseInt(document.getElementById('a-in').value);
-  var m=parseInt(document.getElementById('m-in').value)/100;
-  document.getElementById('p-disp').textContent='$'+p.toLocaleString();
-  document.getElementById('o-disp').textContent=Math.round(o*100)+'%';
-  document.getElementById('a-disp').textContent='$'+a;
-  document.getElementById('m-disp').textContent=Math.round(m*100)+'%';
-  var gross=Math.round(a*o*365);
-  var net=Math.round(gross*(1-m-0.05));
-  var roi=(net/p*100).toFixed(1);
-  var pay=(p/net).toFixed(1);
-  document.getElementById('r-gross').textContent='$'+gross.toLocaleString();
-  document.getElementById('r-net').textContent='$'+net.toLocaleString();
-  document.getElementById('r-roi').textContent=roi+'%';
-  document.getElementById('r-pay').textContent=pay+' yrs';
+  var invest = parseInt(document.getElementById('p-in').value);
+  var adr    = parseInt(document.getElementById('a-in').value);
+  var occ    = parseInt(document.getElementById('o-in').value)/100;
+
+  document.getElementById('p-disp').textContent = '$' + invest.toLocaleString();
+  document.getElementById('a-disp').textContent = '$' + adr + ' / night';
+  document.getElementById('o-disp').textContent = Math.round(occ*100) + '%';
+
+  // Gross monthly & yearly rental income
+  var grossMonthly = adr * occ * 30.42;
+  var grossYearly  = adr * occ * 365;
+
+  // Variable costs per month (based on gross monthly)
+  var airbnbMonthly = Math.round(grossMonthly * 0.03);   // 3% Airbnb host fee
+  var mgmtMonthly   = Math.round(grossMonthly * 0.15);   // 15% management fee
+
+  // Fixed monthly costs
+  var fixedMonthly = 491; // electricity + garden + cleaning + laundry + wifi + garbage + banjar
+
+  // Total monthly costs
+  var totalCostsMonthly = fixedMonthly + airbnbMonthly + mgmtMonthly;
+
+  // Update cost breakdown display
+  var taxMonthly = Math.round(grossMonthly * 0.10); // PPh 10% income tax
+
+  document.getElementById('c-airbnb').textContent = '$' + airbnbMonthly.toLocaleString();
+  document.getElementById('c-mgmt').textContent   = '$' + mgmtMonthly.toLocaleString();
+  document.getElementById('c-tax').textContent    = '$' + taxMonthly.toLocaleString();
+  document.getElementById('c-total').textContent  = '$' + (fixedMonthly + airbnbMonthly + mgmtMonthly + taxMonthly).toLocaleString();
+
+  // Net profit year 1
+  var taxYearly        = Math.round(grossYearly * 0.10);
+  var varCostsYearly   = (airbnbMonthly + mgmtMonthly) * 12;
+  var fixedCostsYearly = fixedMonthly * 12;
+  var profitYearly     = Math.round(grossYearly - varCostsYearly - fixedCostsYearly - taxYearly);
+  var profitMonthly    = Math.round(profitYearly / 12);
+
+  // ROI year 1
+  var roi = Math.round(profitYearly / invest * 100);
+
+  // Break even with 3% rent increase, 2% cost increase per year
+  var cumProfit = 0;
+  var breakEven = null;
+  var rentY     = grossYearly;
+  var varCostY  = varCostsYearly;
+  var fixCostY  = fixedCostsYearly;
+  for(var yr = 1; yr <= 35; yr++){
+    if(yr > 1){ rentY *= 1.03; varCostY = rentY * 0.18; fixCostY *= 1.02; }
+    var profitY = rentY - varCostY - fixCostY;
+    cumProfit += profitY;
+    if(cumProfit >= invest && breakEven === null){
+      var prevCum = cumProfit - profitY;
+      var frac    = (invest - prevCum) / profitY;
+      breakEven   = ((yr - 1) + frac).toFixed(1);
+    }
+  }
+
+  document.getElementById('r-monthly').textContent   = '$' + profitMonthly.toLocaleString();
+  document.getElementById('r-yearly').textContent    = '$' + profitYearly.toLocaleString();
+  document.getElementById('r-roi').textContent       = roi + '%';
+  document.getElementById('r-breakeven').textContent = breakEven ? breakEven + ' years' : '>30 yrs';
 }
 
 function faqToggle(el){

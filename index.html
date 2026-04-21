@@ -121,7 +121,7 @@ nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
 }
 .hero-video-placeholder{
   width:100%;height:100%;
-  background:linear-gradient(160deg,#3a3530 0%,#2a2520 40%,#1e2420 100%);
+  background:url("https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop") center/cover no-repeat;filter:sepia(0.15) brightness(0.85);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -155,9 +155,9 @@ nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
   inset:0;
   background:linear-gradient(
     to top,
-    rgba(26,23,20,0.85) 0%,
-    rgba(26,23,20,0.35) 45%,
-    rgba(26,23,20,0.1) 100%
+    rgba(44,36,28,0.82) 0%,
+    rgba(44,36,28,0.3) 50%,
+    rgba(232,220,200,0.08) 100%
   );
 }
 .hero-content{
@@ -230,9 +230,9 @@ nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
   align-items:flex-end;
 }
 .hero-stat-card{
-  background:rgba(250,248,245,0.15);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(250,248,245,0.25);
+  background:rgba(232,220,200,0.12);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(232,220,200,0.2);
   border-radius:12px;
   padding:1rem 1.4rem;
   text-align:right;
@@ -361,7 +361,7 @@ nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
 }
 .why-video-placeholder{
   position:absolute;inset:0;
-  background:linear-gradient(135deg,#d4c8b8 0%,#c0b5a5 100%);
+  background:url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop") center/cover no-repeat;
   display:flex;align-items:center;justify-content:center;
 }
 .why-video-text{
@@ -812,7 +812,7 @@ input[type="range"]::-webkit-slider-thumb{
 }
 .story-photo-bg{
   position:absolute;inset:0;
-  background:linear-gradient(160deg,#c8bba8 0%,#a89888 100%);
+  background:url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop") center top/cover no-repeat;
   display:flex;align-items:center;justify-content:center;
 }
 .story-photo-label{
@@ -1291,44 +1291,11 @@ footer{
   /* SECTION TITLES GLOBAL */
   .section-title{font-size:1.8rem}
 
-  /* STICKY MOBILE CTA BAR */
-  .mobile-cta-bar{
-    display:flex !important;
-    position:fixed;bottom:0;left:0;right:0;
-    background:var(--cream);
-    border-top:1px solid var(--border);
-    padding:0.8rem 1.2rem;
-    gap:0.8rem;
-    z-index:150;
-    padding-bottom:calc(0.8rem + env(safe-area-inset-bottom));
-  }
-  .mobile-cta-primary{
-    flex:1;height:48px;
-    background:var(--sage);color:var(--cream);
-    border:none;border-radius:40px;
-    font-family:'Jost',sans-serif;
-    font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
-    display:flex;align-items:center;justify-content:center;
-    text-decoration:none;
-  }
-  .mobile-cta-wa{
-    width:48px;height:48px;
-    background:#25D366;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;text-decoration:none;
-  }
-  .mobile-cta-wa svg{width:22px;height:22px}
-
-  /* Add bottom padding so content isn't hidden behind sticky bar */
-  footer{padding-bottom:calc(3rem + 70px)}
-
-  /* HIDE WA FLOAT ON MOBILE - use sticky bar instead */
-  .wa-float{display:none}
+  /* WA float stays visible on mobile */
+  .wa-float{display:flex}
 }
 
-@media(min-width:769px){
-  .mobile-cta-bar{display:none !important}
-}
+
 
 .proj-category-label{
   display:flex;align-items:center;gap:0.7rem;
@@ -1740,7 +1707,7 @@ footer{
     <div class="hero-video-placeholder">
       <div class="video-play-hint">
         <div class="play-circle">▶</div>
-        <div class="video-label">Aerial drone footage — Balangan / Nungalan</div>
+        <div class="video-label">[ MP4 · 1920×1080px · 10–20 sec loop · no audio ]</div>
       </div>
     </div>
   </div>
@@ -1780,11 +1747,16 @@ footer{
 
 <!-- INTRO STRIP -->
 <div class="intro-strip">
-  <p class="intro-strip-text">"We don't build hundreds of units. We build a handful of thoughtful villas per year — and we stand behind every single one."</p>
-  <div class="intro-strip-logos">
-    <span class="logo-badge">Airbnb Superhost</span>
-    <span class="logo-badge">Guest Favourite</span>
-    <span class="logo-badge">4.9 ★ Investor Rating</span>
+  
+  <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap">
+    <span style="font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe)">Our Partners</span>
+    <div style="display:flex;align-items:center;gap:1.8rem">
+      <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;color:var(--charcoal);letter-spacing:0.06em;opacity:0.55">Allianz</span>
+      <span style="color:var(--border);font-size:0.8rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;color:var(--charcoal);letter-spacing:0.06em;opacity:0.55">Legal Bali</span>
+      <span style="color:var(--border);font-size:0.8rem">·</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;color:var(--charcoal);letter-spacing:0.06em;opacity:0.55">Desa Management</span>
+    </div>
   </div>
 </div>
 
@@ -1821,12 +1793,12 @@ footer{
         <span class="why-stat-label">Average occupancy, managed villas</span>
       </div>
       <div class="why-stat reveal reveal-delay-2">
-        <span class="why-stat-num" data-target="155" data-prefix="$" data-suffix="k">0</span>
+        <span class="why-stat-num" data-target="130" data-prefix="$" data-suffix="k">0</span>
         <span class="why-stat-label">Entry price for a Kalani villa</span>
       </div>
       <div class="why-stat reveal reveal-delay-3">
-        <span class="why-stat-num" data-target="26" data-suffix=" yr">0</span>
-        <span class="why-stat-label">Lease term, Nungalan project</span>
+        <span class="why-stat-num" data-target="15" data-suffix="–19%">0</span>
+        <span class="why-stat-label">Net ROI on delivered projects</span>
       </div>
     </div>
   </div>
@@ -1836,44 +1808,72 @@ footer{
 <section class="boutique">
   <div>
     <div class="eyebrow"><span class="eyebrow-line"></span>The Difference</div>
-    <h2 class="section-title">Boutique means<br>you can actually<br><em>talk to us.</em></h2>
-    <p class="section-body">No sales team. No intermediaries. Direct access to the developer — through the entire process, from first call to rental income.</p>
-    <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:2rem;display:inline-block">Talk to the Developer →</a>
+    <h2 class="section-title">We are a <em>Boutique<br>Developer.</em><br>Built on detail,<br>not volume.</h2>
+    <p class="section-body">Most developers build 20+ identical villas in a row — creating a price war that kills rental yields. We build small, focused projects. Limited units. Better returns. And you deal directly with the developer, not a sales team.</p>
+    <div style="margin-top:1.5rem;padding:1.2rem 1.4rem;background:rgba(125,155,118,0.08);border-radius:10px;border:1px solid rgba(125,155,118,0.2)">
+      <div style="font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.8rem;font-weight:500">Boutique vs. Mass Developer</div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem">
+        <div style="display:flex;gap:0.8rem;font-size:0.82rem">
+          <span style="color:var(--sage);font-weight:500;min-width:14px">✓</span>
+          <span style="color:var(--charcoal)">Max. 4 identical units per design — your yield stays protected</span>
+        </div>
+        <div style="display:flex;gap:0.8rem;font-size:0.82rem">
+          <span style="color:var(--sage);font-weight:500;min-width:14px">✓</span>
+          <span style="color:var(--charcoal)">Customisation — finishes, layout, furniture style</span>
+        </div>
+        <div style="display:flex;gap:0.8rem;font-size:0.82rem">
+          <span style="color:var(--sage);font-weight:500;min-width:14px">✓</span>
+          <span style="color:var(--charcoal)">Direct line to the developer, not a call centre</span>
+        </div>
+        <div style="display:flex;gap:0.8rem;font-size:0.82rem">
+          <span style="color:var(--sage);font-weight:500;min-width:14px">✓</span>
+          <span style="color:var(--charcoal)">Full service — land acquisition to Airbnb management</span>
+        </div>
+      </div>
+    </div>
+    <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:1.8rem;display:inline-block">Talk Directly to the Developer →</a>
   </div>
   <div class="features-list">
     <div class="feature">
       <span class="feature-num">01</span>
       <div>
-        <div class="feature-title">Customisation Options</div>
-        <div class="feature-text">Influence finishes, tile selection, furniture style and certain layout elements before construction begins. You're not buying from a catalogue.</div>
+        <div class="feature-title">German-Led Project Management</div>
+        <div class="feature-text">Founded and managed by a German developer based between Hamburg and Bali. German precision standards applied to every build — timelines, budgets, quality control.</div>
       </div>
     </div>
     <div class="feature">
       <span class="feature-num">02</span>
       <div>
-        <div class="feature-title">Rain-Season Engineering</div>
-        <div class="feature-text">Most villa problems appear after the first rainy season. We build for climate — watertight from day one, minimal long-term maintenance.</div>
+        <div class="feature-title">Four-Eyes Principle — External Oversight</div>
+        <div class="feature-text">Every project is independently monitored by an experienced external construction management firm. Two sets of eyes on every phase — maximum transparency, zero conflicts of interest.</div>
       </div>
     </div>
     <div class="feature">
       <span class="feature-num">03</span>
       <div>
-        <div class="feature-title">Full Management Post-Handover</div>
-        <div class="feature-text">Airbnb listing, dynamic pricing, housekeeping, maintenance, monthly reports — all in-house. You own, we operate.</div>
+        <div class="feature-title">Weekly Reports + 24/7 Live CCTV Access</div>
+        <div class="feature-text">Every investor receives weekly photo and video reports. Plus 24/7 live CCTV access to your construction site — watch your villa being built from anywhere in the world, any time.</div>
       </div>
     </div>
     <div class="feature">
       <span class="feature-num">04</span>
       <div>
-        <div class="feature-title">Transparent Construction</div>
-        <div class="feature-text">Weekly photo updates, milestone-based payments, and live site access. You always know exactly where your villa stands.</div>
+        <div class="feature-title">Full Service — First Contact to Rental Income</div>
+        <div class="feature-text">Land acquisition, legal structure, design, construction, furnishing, Airbnb listing, rental management — all under one roof. The land lease is signed directly between the landlord and the investor, giving you a direct legal relationship with no intermediary. One partner. Zero handoff.</div>
       </div>
     </div>
     <div class="feature">
       <span class="feature-num">05</span>
       <div>
-        <div class="feature-title">Legally Structured from Day One</div>
-        <div class="feature-text">Licensed PPAT notary. Extension options secured in writing. No nominee structures. Independent legal review encouraged.</div>
+        <div class="feature-title">Customisation & Personal Contact</div>
+        <div class="feature-text">Choose finishes, tiles, furniture style and layout elements before construction begins. And you always deal directly with the developer — not a sales team or account manager.</div>
+      </div>
+    </div>
+    <div class="feature">
+      <span class="feature-num">06</span>
+      <div>
+        <div class="feature-title">Rain-Season Engineering</div>
+        <div class="feature-text">Built for the Bali climate from day one. Proper drainage, tropical materials, watertight sealing — designed to minimise maintenance costs over the full lease period.</div>
       </div>
     </div>
   </div>
@@ -1903,8 +1903,11 @@ footer{
   <div class="projects-grid" style="margin-bottom:3.5rem">
     <div class="proj-card proj-card-featured reveal">
       <div class="proj-img" style="height:340px">
-        <div class="proj-img-bg" style="background:linear-gradient(135deg,#c8bba8 0%,#a89888 100%)">
-          <div class="proj-img-label">[ Solara villa renders / site photography ]</div>
+        <div class="proj-img-bg" style="background:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:0">
+          <div style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
+          <div style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
+          <div style="background:url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
+          <div style="background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
         </div>
         <div class="proj-badge badge-sage">5 of 6 Units Left</div>
         <div class="proj-urgency-bar">
@@ -1964,8 +1967,7 @@ footer{
     </div>
     <div class="proj-card reveal reveal-delay-2">
       <div class="proj-img">
-        <div class="proj-img-bg" style="background:linear-gradient(135deg,#c4b8a8 0%,#a89880 100%)">
-          <div class="proj-img-label">[ Villa Bayu rendering ]</div>
+        <div class="proj-img-bg" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
         </div>
         <div class="proj-badge badge-nude">3 Units Available</div>
         <div class="proj-urgency-bar">
@@ -1997,8 +1999,7 @@ footer{
     </div>
     <div class="proj-sold-grid">
       <div class="proj-sold-card">
-        <div class="sold-img" style="background:linear-gradient(135deg,#c8b8a0 0%,#a89880 100%)">
-          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Tulum Mila ]</div>
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
@@ -2007,8 +2008,7 @@ footer{
         </div>
       </div>
       <div class="proj-sold-card">
-        <div class="sold-img" style="background:linear-gradient(135deg,#b8c0b0 0%,#98a890 100%)">
-          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Rahime Cubes ]</div>
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
@@ -2017,8 +2017,7 @@ footer{
         </div>
       </div>
       <div class="proj-sold-card">
-        <div class="sold-img" style="background:linear-gradient(135deg,#d0c0a8 0%,#b0a088 100%)">
-          <div class="proj-img-label" style="color:rgba(44,40,37,0.2);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase">[ Luxury Huts ]</div>
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
@@ -2166,12 +2165,12 @@ footer{
     <div class="proc-step reveal reveal-delay-3">
       <div class="proc-dot" style="background:var(--cream);color:var(--muted)">04</div>
       <div class="proc-title">Construction</div>
-      <p class="proc-text">Weekly updates, milestone payments, live site webcam. Zero surprises.</p>
+      <p class="proc-text">Weekly photo and video reports keep you informed at every stage. Payments are milestone-based — you only pay when verified progress is confirmed. Live CCTV access to your site, 24/7.</p>
     </div>
     <div class="proc-step reveal reveal-delay-4">
       <div class="proc-dot" style="background:var(--cream);color:var(--muted)">05</div>
-      <div class="proc-title">Earn</div>
-      <p class="proc-text">Handover → Airbnb listing → rental management → monthly income to your account.</p>
+      <div class="proc-title">Handover & Earn</div>
+      <p class="proc-text">Once your villa is handed over, we handle the full rental setup — Airbnb listing, pricing, housekeeping, guest management, and monthly income reports directly to your account.</p>
     </div>
   </div>
 </section>
@@ -2191,12 +2190,11 @@ footer{
     <div class="eyebrow reveal"><span class="eyebrow-line"></span>The Story</div>
     <h2 class="section-title">Built on mistakes.<br><em>Earned</em> by experience.</h2>
 
-    <p class="story-text">I came to Bali during COVID as a digital nomad. The island was empty — and so were hundreds of villas. I started renting them, renovating them, listing them on Airbnb. It worked.</p>
-    <p class="story-text">Then I thought I was ready to build. I wasn't. My first project was a disaster — wrong architect, bad contracts, 150,000€ lost to a scam. I nearly walked away.</p>
+    <p class="story-text">I came to Bali from Germany during COVID. What started as a digital nomad adventure turned into five years on the island — building, learning, and putting down real roots. I started renting empty villas, renovating them, and listing them on Airbnb. It worked. So I decided to build — with a personal loan, no construction experience, and no mentor. I trusted the wrong people. I signed contracts I didn't fully understand. A business partner disappeared with 150,000€ of investor money — money that friends and family had trusted me with. I had to look them in the eye and explain what had happened.</p>
 
-    <div class="story-pull">"I wish someone had told me what I'm telling you now."</div>
+    <div class="story-pull">"I paid the price for this knowledge. You benefit from it."</div>
 
-    <p class="story-text">I didn't walk away. I figured it out. Today, Kalani builds small, careful, profitable villas — and I share everything I've learned with every investor who works with us.</p>
+    <p class="story-text">I didn't walk away. I finished every project. I paid back every investor. And I made a decision: to build something where transparency isn't a marketing word — it's the foundation. The four-eyes principle, live CCTV, weekly reports, direct land contracts — none of this is coincidence. It's the direct result of learning the hardest possible way. I'm full time in Bali, I know this market inside out, and what I want more than anything is to make sure no investor who works with me ever has to go through what my early investors did.</p>
 
     <div class="story-facts">
       <div class="sf"><strong data-target="3" data-suffix="+" data-prefix="">0</strong><span>Years in market</span></div>
@@ -2620,14 +2618,6 @@ function faqToggle(el){
 
 calc();
 </script>
-
-<!-- MOBILE STICKY CTA BAR -->
-<div class="mobile-cta-bar" style="display:none">
-  <a href="#booking" class="mobile-cta-primary">Book a Free Call</a>
-  <a href="https://wa.me/62XXXXXXXXXX?text=Hi%20Kalani%2C%20I%27m%20interested%20in%20your%20villas." class="mobile-cta-wa" target="_blank">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-</div>
 
 </body>
 </html>

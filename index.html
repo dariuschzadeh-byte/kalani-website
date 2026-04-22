@@ -2101,6 +2101,15 @@ footer{
   box-shadow:0 16px 40px rgba(44,40,37,0.08);
 }
 
+
+@media(max-width:768px){
+  /* Video section */
+  section[id="videos"]{padding:2.5rem 1.2rem !important}
+  section[id="videos"] > div > div:last-child{
+    grid-template-columns:1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2290,6 +2299,77 @@ footer{
       <div>
         <div class="feature-title">Rain-Season Engineering</div>
         <div class="feature-text">Built for the Bali climate from day one. Proper drainage, tropical materials, watertight sealing — designed to minimise maintenance costs over the full lease period.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section style="padding:5rem 3.5rem;background:var(--greige)" id="videos">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>See It For Yourself</div>
+      <h2 class="section-title">Watch before <em>you decide.</em></h2>
+      <p class="section-body" style="text-align:center;max-width:480px;margin:0.8rem auto 0">No sales deck. No brochure. Just an honest look at how we build, who we are, and what your investment looks like on the ground.</p>
+    </div>
+
+    <!-- Main founder video -->
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#1a1714;margin-bottom:1.2rem">
+      <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(250,248,245,0.15);border:2px solid rgba(250,248,245,0.4);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s ease" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;color:var(--cream)">Founder Story</div>
+          <div style="font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.6);margin-top:0.2rem">Dariusch Zadeh · 90 sec</div>
+        </div>
+      </div>
+      <div style="position:absolute;top:1rem;left:1rem;background:rgba(250,248,245,0.1);backdrop-filter:blur(6px);border-radius:4px;padding:0.3rem 0.6rem;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.7)">[ Founder video — coming soon ]</div>
+    </div>
+
+    <!-- 3 clip placeholders -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+      <div class="reveal reveal-delay-1" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div style="text-align:center;padding:0 0.5rem">
+            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Construction Oversight</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">On-site · 60 sec</div>
+          </div>
+        </div>
+        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div style="text-align:center;padding:0 0.5rem">
+            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Property Management</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">Desa Management · 60 sec</div>
+          </div>
+        </div>
+        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
+      </div>
+
+      <div class="reveal reveal-delay-3" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
+          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div style="text-align:center;padding:0 0.5rem">
+            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Solara — Site Tour</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">Nungalan · Bali</div>
+          </div>
+        </div>
+        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
       </div>
     </div>
   </div>

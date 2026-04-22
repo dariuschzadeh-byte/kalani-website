@@ -1812,6 +1812,152 @@ footer{
   .story-kpis{grid-template-columns:1fr 1fr}
 }
 
+
+/* ── PREMIUM PROJECT GRID ── */
+.projects{padding:5rem 3.5rem;background:var(--cream)}
+.projects-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:2.5rem;gap:2rem;
+}
+.proj-premium-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;
+  margin-bottom:3rem;
+}
+.proj-premium-card{
+  background:var(--linen);
+  border:1px solid var(--border-light);
+  border-radius:12px;
+  overflow:hidden;
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;
+}
+.proj-premium-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(44,40,37,0.1);
+}
+.proj-premium-img{
+  position:relative;
+  height:160px;
+  overflow:hidden;
+}
+.proj-status-dot{
+  position:absolute;top:0.8rem;right:0.8rem;
+  width:8px;height:8px;border-radius:50%;
+  z-index:2;
+}
+.proj-premium-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:0.5rem 0.8rem;
+  background:linear-gradient(to top,rgba(26,23,20,0.7) 0%,transparent 100%);
+  font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:rgba(250,248,245,0.85);
+  font-family:'Jost',sans-serif;
+}
+.proj-premium-body{
+  padding:1rem 1.1rem 1.1rem;
+}
+.proj-premium-loc{
+  font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--taupe);margin-bottom:0.3rem;
+}
+.proj-premium-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:300;
+  color:var(--charcoal);margin-bottom:0.5rem;
+}
+.proj-premium-desc{
+  font-size:0.75rem;color:var(--muted);
+  line-height:1.6;margin-bottom:0.8rem;
+  display:-webkit-box;-webkit-line-clamp:3;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.proj-premium-footer{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding-top:0.8rem;
+  border-top:1px solid var(--border-light);
+  margin-bottom:0.7rem;
+}
+.proj-premium-price{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:300;color:var(--charcoal);
+}
+.proj-premium-link{
+  font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--sage-dark);text-decoration:none;
+  transition:opacity 0.2s;
+}
+.proj-premium-link:hover{opacity:0.7}
+.proj-premium-units{
+  display:flex;gap:4px;align-items:center;
+}
+.ppu{
+  width:8px;height:8px;border-radius:50%;
+  border:1px solid rgba(44,40,37,0.15);
+}
+.ppu-active{background:var(--sage)}
+.ppu-sold{background:var(--greige)}
+
+/* Track record */
+.proj-sold-section{
+  border-top:1px solid var(--border-light);
+  padding-top:2.5rem;
+}
+.proj-sold-header{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:1.5rem;gap:2rem;
+}
+.proj-sold-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
+.proj-sold-card{
+  border-radius:10px;overflow:hidden;
+  border:1px solid var(--border-light);
+  background:var(--linen);
+  transition:transform 0.25s ease;
+}
+.proj-sold-card:hover{transform:translateY(-3px)}
+.sold-img{
+  height:140px;
+  position:relative;overflow:hidden;
+}
+.sold-overlay{
+  position:absolute;inset:0;
+  background:rgba(26,23,20,0.45);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(250,248,245,0.9);font-family:'Jost',sans-serif;
+}
+.sold-body{padding:0.8rem 1rem}
+
+/* Mobile */
+@media(max-width:768px){
+  .projects{padding:2.5rem 1.2rem}
+  .projects-header{flex-direction:column;gap:0.5rem;margin-bottom:1.5rem}
+  .projects-header p{text-align:left}
+  .proj-premium-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:0.8rem;
+    padding-bottom:0.5rem;
+    scrollbar-width:none;
+  }
+  .proj-premium-grid::-webkit-scrollbar{display:none}
+  .proj-premium-card{
+    min-width:76vw;
+    scroll-snap-align:start;
+    flex-shrink:0;
+  }
+  .proj-sold-grid{grid-template-columns:1fr 1fr}
+  .proj-sold-header{flex-direction:column;gap:0.4rem}
+}
+
 </style>
 </head>
 <body>
@@ -2009,177 +2155,120 @@ footer{
 <!-- PROJECTS -->
 <section class="projects" id="projects">
 
-  <!-- AVAILABLE NOW -->
   <div class="projects-header">
     <div>
-      <div class="eyebrow"><span class="eyebrow-line"></span>Available Now</div>
-      <h2 class="section-title">Secure your unit<br><em>before it's gone.</em></h2>
+      <div class="eyebrow"><span class="eyebrow-line"></span>Current Projects</div>
+      <h2 class="section-title">Where we are <em>building.</em></h2>
     </div>
-    <div style="max-width:300px;text-align:right">
-      <p style="font-size:0.9rem;color:var(--muted);line-height:1.6">Our last three projects sold out within weeks of launch. Units are allocated on a first-come basis.</p>
-      <p style="font-size:0.78rem;color:var(--sage-dark);margin-top:0.6rem;font-weight:500">↑ Rahime Cubes: all 4 units sold in under 6 weeks.</p>
-    </div>
+    <p style="font-size:0.85rem;color:var(--muted);max-width:340px;text-align:right">Every project is limited to 4 identical units. Off-plan entry secures the best price.</p>
   </div>
 
-  <!-- Under Construction -->
-  <div class="proj-category-label">
-    <span class="proj-cat-dot" style="background:var(--sage)"></span>
-    Under Construction
-    <span class="swipe-hint" style="margin-left:auto">swipe</span>
+  <!-- PREMIUM CARD GRID -->
+  <div class="proj-premium-grid">
+
+    <!-- Solara – Under Construction -->
+    <div class="proj-premium-card reveal">
+      <div class="proj-premium-img">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
+        <div class="proj-status-dot" style="background:var(--sage)"></div>
+        <div class="proj-premium-overlay">Under Construction</div>
+      </div>
+      <div class="proj-premium-body">
+        <div class="proj-premium-loc">Nungalan · Uluwatu</div>
+        <div class="proj-premium-name">Solara</div>
+        <p class="proj-premium-desc">1-bedroom villas, two distinct designs. 5 of 6 units available. Construction underway — early buyers lock in pre-completion pricing.</p>
+        <div class="proj-premium-footer">
+          <div class="proj-premium-price">From $155,000</div>
+          <a href="#booking" class="proj-premium-link">Request Info →</a>
+        </div>
+        <div class="proj-premium-units">
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-sold"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Villa Maihan – Off-Plan -->
+    <div class="proj-premium-card reveal reveal-delay-1">
+      <div class="proj-premium-img">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
+        <div class="proj-status-dot" style="background:var(--nude)"></div>
+        <div class="proj-premium-overlay">Off-Plan</div>
+      </div>
+      <div class="proj-premium-body">
+        <div class="proj-premium-loc">Balangan · Uluwatu</div>
+        <div class="proj-premium-name">Villa Maihan</div>
+        <p class="proj-premium-desc">Three units, build-to-order. Full customisation before construction begins. Direct land contract between investor and landowner.</p>
+        <div class="proj-premium-footer">
+          <div class="proj-premium-price">On Request</div>
+          <a href="#booking" class="proj-premium-link">Request Info →</a>
+        </div>
+        <div class="proj-premium-units">
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Villa Bayu – Off-Plan -->
+    <div class="proj-premium-card reveal reveal-delay-2">
+      <div class="proj-premium-img">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
+        <div class="proj-status-dot" style="background:var(--nude)"></div>
+        <div class="proj-premium-overlay">Off-Plan</div>
+      </div>
+      <div class="proj-premium-body">
+        <div class="proj-premium-loc">Nungalan · Uluwatu</div>
+        <div class="proj-premium-name">Villa Bayu</div>
+        <p class="proj-premium-desc">Three units available for reservation. Off-plan entry gives maximum flexibility and the best entry price before construction begins.</p>
+        <div class="proj-premium-footer">
+          <div class="proj-premium-price">On Request</div>
+          <a href="#booking" class="proj-premium-link">Request Info →</a>
+        </div>
+        <div class="proj-premium-units">
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder 3 -->
+    <div class="proj-premium-card reveal reveal-delay-3">
+      <div class="proj-premium-img">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
+        <div class="proj-status-dot" style="background:var(--nude)"></div>
+        <div class="proj-premium-overlay">Coming Soon</div>
+      </div>
+      <div class="proj-premium-body">
+        <div class="proj-premium-loc">Canggu · Bali</div>
+        <div class="proj-premium-name">Villa [TBC]</div>
+        <p class="proj-premium-desc">New project, details to be announced. Register your interest to be notified first when units open for reservation.</p>
+        <div class="proj-premium-footer">
+          <div class="proj-premium-price">On Request</div>
+          <a href="#booking" class="proj-premium-link">Register Interest →</a>
+        </div>
+        <div class="proj-premium-units">
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+          <span class="ppu ppu-active"></span>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="projects-grid" style="margin-bottom:3.5rem">
-    <div class="proj-card proj-card-featured reveal">
-      <div class="proj-img" style="height:340px">
-        <div class="proj-img-bg" style="background:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:0">
-          <div style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
-          <div style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
-          <div style="background:url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
-          <div style="background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;border-radius:3px"></div>
-        </div>
-        <div class="proj-badge badge-sage">5 of 6 Units Left</div>
-        <div class="proj-urgency-bar">
-          <div class="urgency-label">Units remaining</div>
-          <div class="urgency-dots">
-            <div class="u-dot u-dot-sold"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-loc">Bali · Under Construction</div>
-        <div class="proj-name">Solara</div>
-        <p class="proj-desc">Construction is underway right now. Buy in during the build phase and benefit from the best entry price — 1 unit already secured by an early investor.</p>
-        <div class="proj-footer">
-          <div class="proj-price">On Request <span>Price per unit</span></div>
-          <a href="#booking" class="proj-link">Secure a Unit →</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Off-Plan -->
-  <div class="proj-category-label">
-    <span class="proj-cat-dot" style="background:var(--nude)"></span>
-    Off-Plan — Build to Order
-  </div>
-  <div class="projects-grid" style="grid-template-columns:1fr 1fr;margin-bottom:4rem">
-    <div class="proj-card reveal reveal-delay-1">
-      <div class="proj-img">
-        <div class="proj-img-bg" style="background:linear-gradient(135deg,#b8c4b0 0%,#8fa888 100%)">
-          <div class="proj-img-label">[ Villa Maihan rendering ]</div>
-        </div>
-        <div class="proj-badge badge-nude">3 of 3 Available</div>
-        <div class="proj-urgency-bar">
-          <div class="urgency-label">Units remaining</div>
-          <div class="urgency-dots">
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-loc">Balangan · Bukit Peninsula</div>
-        <div class="proj-name">Villa Maihan</div>
-        <p class="proj-desc">Ocean-view location on the Bukit. Built once your purchase is confirmed — you can still influence finishes and select customisation options. All 3 units available.</p>
-        <div class="proj-footer">
-          <div class="proj-price">$179,000 <span>From</span></div>
-          <a href="#booking" class="proj-link">Request Info →</a>
-        </div>
-      </div>
-    </div>
-    <div class="proj-card reveal reveal-delay-2">
-      <div class="proj-img">
-        <div class="proj-img-bg" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
-        </div>
-        <div class="proj-badge badge-nude">3 Units Available</div>
-        <div class="proj-urgency-bar">
-          <div class="urgency-label">Units remaining</div>
-          <div class="urgency-dots">
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-            <div class="u-dot"></div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-loc">Bali · Off-Plan</div>
-        <div class="proj-name">Villa Bayu</div>
-        <p class="proj-desc">Three units available for early reservation. Off-plan entry gives you maximum customisation flexibility and the best price point before construction begins.</p>
-        <div class="proj-footer">
-          <div class="proj-price">On Request <span>Price per unit</span></div>
-          <a href="#booking" class="proj-link">Request Info →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-    <!-- Villa Placeholder 3 -->
-    <div class="proj-card reveal reveal-delay-1">
-      <div class="proj-img">
-        <div class="proj-img-bg" style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
-        </div>
-        <div class="proj-badge" style="background:var(--nude);color:var(--charcoal)">Off-Plan</div>
-        <div class="proj-urgency-bar">
-          <span class="urgency-label">Units available</span>
-          <span class="urgency-dots">
-            <span class="u-dot"></span>
-            <span class="u-dot"></span>
-            <span class="u-dot"></span>
-            <span class="u-dot u-dot-sold"></span>
-          </span>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category-label"><span class="proj-cat-dot" style="background:var(--nude)"></span>Build To Order</div>
-        <div class="proj-loc">Canggu · Bali</div>
-        <div class="proj-name">Villa [Name TBC]</div>
-        <p class="proj-desc">Three units available for off-plan reservation. Prime Canggu location, modern tropical design. Construction start Q3 2025.</p>
-        <div class="proj-footer">
-          <div class="proj-price">On Request <span>Price per unit</span></div>
-          <a href="#booking" class="proj-link">Request Info →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Villa Placeholder 4 -->
-    <div class="proj-card reveal reveal-delay-2">
-      <div class="proj-img">
-        <div class="proj-img-bg" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
-        </div>
-        <div class="proj-badge" style="background:var(--nude);color:var(--charcoal)">Off-Plan</div>
-        <div class="proj-urgency-bar">
-          <span class="urgency-label">Units available</span>
-          <span class="urgency-dots">
-            <span class="u-dot"></span>
-            <span class="u-dot"></span>
-            <span class="u-dot u-dot-sold"></span>
-            <span class="u-dot u-dot-sold"></span>
-          </span>
-        </div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-category-label"><span class="proj-cat-dot" style="background:var(--nude)"></span>Build To Order</div>
-        <div class="proj-loc">Uluwatu · Bali</div>
-        <div class="proj-name">Villa [Name TBC]</div>
-        <p class="proj-desc">Two units remaining. Cliff-top location with ocean views. Off-plan pricing available for early investors. Q4 2025 construction start.</p>
-        <div class="proj-footer">
-          <div class="proj-price">On Request <span>Price per unit</span></div>
-          <a href="#booking" class="proj-link">Request Info →</a>
-        </div>
-      </div>
-    </div>
-
-  <!-- Sold Out / Track Record -->
+  <!-- TRACK RECORD -->
   <div class="proj-sold-section">
     <div class="proj-sold-header">
       <div class="eyebrow" style="color:var(--warm-gray)"><span class="eyebrow-line" style="background:var(--warm-gray)"></span>Track Record — Sold Out</div>
-      <p style="font-size:0.85rem;color:var(--muted);max-width:420px">Every project we have launched has sold out. Here's what we've delivered.</p>
+      <p style="font-size:0.82rem;color:var(--muted);max-width:380px">Every project we have launched has sold out. These are the projects that built our reputation.</p>
     </div>
     <div class="proj-sold-grid">
       <div class="proj-sold-card">
@@ -2187,73 +2276,47 @@ footer{
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
-          <div class="proj-loc">Tulum Mila</div>
-          <div class="proj-name" style="font-size:1.05rem">2 of 2 Units Delivered</div>
+          <div class="proj-loc">Seminyak · Bali</div>
+          <div class="proj-name" style="font-size:1rem">Tulum Mila</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">2 of 2 units delivered</div>
         </div>
       </div>
       <div class="proj-sold-card">
-        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
-          <div class="proj-loc">Rahime Cubes</div>
-          <div class="proj-name" style="font-size:1.05rem">4 of 4 Units Delivered</div>
+          <div class="proj-loc">Canggu · Bali</div>
+          <div class="proj-name" style="font-size:1rem">Rahime Cubes</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">4 of 4 units delivered</div>
         </div>
       </div>
       <div class="proj-sold-card">
-        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat">
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
           <div class="sold-overlay">SOLD OUT</div>
         </div>
         <div class="sold-body">
-          <div class="proj-loc">Luxury Huts</div>
-          <div class="proj-name" style="font-size:1.05rem">4 of 4 Units Delivered</div>
+          <div class="proj-loc">Uluwatu · Bali</div>
+          <div class="proj-name" style="font-size:1rem">Luxury Huts</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">4 of 4 units delivered</div>
         </div>
       </div>
-      <div class="proj-sold-card proj-sold-more">
-        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--muted);font-style:italic;margin-bottom:0.4rem">+ Further completed projects</div>
-        <a href="#booking" style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage-dark);text-decoration:none">Request full portfolio →</a>
+      <div class="proj-sold-card">
+        <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop') center/cover no-repeat">
+          <div class="sold-overlay">SOLD OUT</div>
+        </div>
+        <div class="sold-body">
+          <div class="proj-loc">Seminyak · Bali</div>
+          <div class="proj-name" style="font-size:1rem">Murlan Villas</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">3 of 3 units delivered</div>
+        </div>
       </div>
+    </div>
+    <div style="margin-top:1.5rem;text-align:right">
+      <a href="#booking" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border)">Request Full Portfolio →</a>
     </div>
   </div>
 
-</section>
-
-<!-- VIDEO SECTION -->
-<section class="video-section" id="video">
-  <div class="video-player">
-    <div class="video-thumb-overlay">
-      <div class="video-play-btn">▶</div>
-      <div class="video-duration">2:34 · Founder Story</div>
-    </div>
-    <div class="video-label-bar">
-      <div class="video-title-tag">Kalani · Bali 2025</div>
-      <div class="video-title-tag">Nungalan Project</div>
-    </div>
-  </div>
-
-  <div class="video-content">
-    <div class="eyebrow"><span class="eyebrow-line"></span>Watch & See</div>
-    <h2 class="section-title" style="color:var(--cream)">See what we build.<br>Hear <em>why</em> we build it.</h2>
-    <p class="section-body">A 2-minute founder video. Construction walkthroughs. Investor testimonials. No stock footage, no actors — just real projects and honest numbers.</p>
-    <div class="video-clips">
-      <div class="clip-thumb">
-        <div class="clip-icon">▶</div>
-        <div class="clip-label">Nungalan Build</div>
-      </div>
-      <div class="clip-thumb">
-        <div class="clip-icon">▶</div>
-        <div class="clip-label">Murlan Walkthrough</div>
-      </div>
-      <div class="clip-thumb">
-        <div class="clip-icon">▶</div>
-        <div class="clip-label">Investor Interview</div>
-      </div>
-      <div class="clip-thumb">
-        <div class="clip-icon">▶</div>
-        <div class="clip-label">Bali Market 2025</div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ROI CALCULATOR -->

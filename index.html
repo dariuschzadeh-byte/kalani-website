@@ -415,10 +415,11 @@ nav.scrolled .nav-cta{color:var(--charcoal);border-color:var(--border)}
   margin-top:3rem;
 }
 .why-stat{
-  padding:1.4rem;
-  background:var(--cream);
-  border-radius:12px;
-  border:1px solid var(--border-light);
+  padding:1.2rem 0.5rem;
+  text-align:center;
+  background:none;
+  border:none;
+  border-radius:0;
 }
 .why-stat-num{
   font-family:'Playfair Display',serif;
@@ -1167,7 +1168,13 @@ footer{
   .why-content .section-title{font-size:1.8rem}
   .why-content .section-body{font-size:0.88rem}
   .why-stats-row{grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:1.8rem}
-  .why-stat{padding:1rem}
+  .why-stat{
+  padding:1.2rem 0.5rem;
+  text-align:center;
+  background:none;
+  border:none;
+  border-radius:0;
+}
   .why-stat-num{font-size:1.6rem}
   .why-stat-label{font-size:0.72rem}
 
@@ -1445,7 +1452,11 @@ footer{
 
 /* Why stats */
 .why-stat{
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  padding:1.2rem 0.5rem;
+  text-align:center;
+  background:none;
+  border:none;
+  border-radius:0;
 }
 .why-stat:hover{
   transform:translateY(-2px);
@@ -1988,6 +1999,108 @@ footer{
   div[style*="font-size:1.6rem"]{font-size:1.1rem !important}
 }
 
+
+/* ── LOWER SECTION ANIMATIONS ── */
+
+/* Exit strategy numbers */
+.exit-num{
+  display:inline-block;
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),color 0.3s ease;
+}
+.exit-num:hover{
+  transform:scale(1.15);
+  color:var(--sage-dark) !important;
+}
+
+/* Risk rows – subtle left highlight */
+.risk-row{
+  transition:padding-left 0.25s ease,background 0.25s ease;
+  border-radius:4px;
+}
+.risk-row:hover{
+  padding-left:0.6rem;
+  background:rgba(125,155,118,0.05);
+}
+
+/* FAQ hover */
+.faq-q{
+  transition:padding-left 0.2s ease;
+}
+.faq-q:hover{
+  padding-left:0.4rem;
+}
+
+/* Day in life images */
+.ditl-img{
+  transition:transform 0.5s ease, filter 0.4s ease;
+  filter:brightness(0.85);
+}
+.ditl-img:hover{
+  transform:scale(1.04);
+  filter:brightness(1);
+}
+
+/* Scroll reveal for exit strategy columns */
+.exit-col{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.exit-col.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.exit-col:nth-child(2){ transition-delay:0.1s }
+.exit-col:nth-child(3){ transition-delay:0.2s }
+
+/* Risk image reveal */
+.risk-img-wrap{
+  opacity:0;
+  transform:translateX(-20px);
+  transition:opacity 0.7s ease, transform 0.7s ease;
+}
+.risk-img-wrap.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* Mood shot text fade */
+.mood-text{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+.mood-text.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Payment plan steps */
+.pay-step{
+  transition:transform 0.25s ease;
+}
+.pay-step:hover{
+  transform:translateX(4px);
+}
+
+/* Booking perks */
+.perk{
+  transition:transform 0.2s ease, opacity 0.2s ease;
+}
+.perk:hover{
+  transform:translateX(3px);
+  opacity:0.8;
+}
+
+/* Testimonials subtle scale */
+.testi-card{
+  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;
+}
+.testi-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(44,40,37,0.08);
+}
+
 </style>
 </head>
 <body>
@@ -2060,16 +2173,6 @@ footer{
       <span style="color:var(--border);font-size:0.8rem">·</span>
       <span style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:300;color:var(--charcoal);letter-spacing:0.06em;opacity:0.55">Desa Management</span>
     </div>
-  </div>
-</div>
-
-
-<!-- MOOD SHOT 1 -->
-<div style="width:100%;height:60vh;min-height:400px;max-height:600px;overflow:hidden;position:relative;">
-  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1600&q=80&auto=format&fit=crop') center 40%/cover no-repeat;filter:brightness(0.85)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(250,248,245,0.95) 100%)"></div>
-  <div style="position:absolute;bottom:3rem;left:0;right:0;text-align:center">
-    <p style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:300;font-style:italic;color:var(--cream);text-shadow:0 2px 20px rgba(0,0,0,0.4)">The most visited island in the world.<br>Still underbuilt for quality.</p>
   </div>
 </div>
 
@@ -2209,7 +2312,7 @@ footer{
     <!-- Solara – Under Construction -->
     <div class="proj-premium-card reveal">
       <div class="proj-premium-img">
-        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
+        <div class="ditl-img" style="position:absolute;inset:0;background:url(\'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1600&q=80&auto=format&fit=crop\') center/cover no-repeat"></div>
         <div class="proj-status-dot" style="background:var(--sage)"></div>
         <div class="proj-premium-overlay">Under Construction</div>
       </div>
@@ -2658,7 +2761,7 @@ footer{
 <div style="width:100%;height:50vh;min-height:300px;max-height:500px;overflow:hidden;position:relative;">
   <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&q=80&auto=format&fit=crop') center 50%/cover no-repeat;filter:brightness(0.8)"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
-    <p style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--cream);text-align:center;text-shadow:0 2px 20px rgba(0,0,0,0.5);max-width:600px;padding:0 2rem">Built on the island.<br>Built for the long term.</p>
+    <p class="mood-text" style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--cream);text-align:center;text-shadow:0 2px 20px rgba(0,0,0,0.5);max-width:600px;padding:0 2rem">Built on the island.<br>Built for the long term.</p>
   </div>
 </div>
 
@@ -2668,19 +2771,19 @@ footer{
     <div class="eyebrow"><span class="eyebrow-line"></span>Exit Strategy</div>
     <h2 class="section-title">How do you <em>get out?</em></h2>
     <p class="section-body" style="max-width:600px;margin-bottom:3rem">It's the question every serious investor asks — and the one most developers avoid. Your villa is built on a leasehold basis, with a contractual extension option written in before you buy. You are not trapped. You have three clear exit paths.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem">
-      <div>
-        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">①</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem" id="exit-cols">
+      <div class="exit-col">
+        <div class="exit-num" style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">①</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);margin-bottom:0.6rem">Sell on the open market</div>
         <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">Bali's secondary market for quality villas is active and growing. A well-managed villa with strong Airbnb reviews sells faster than most expect. We assist with the process.</p>
       </div>
-      <div>
-        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">②</div>
+      <div class="exit-col">
+        <div class="exit-num" style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">②</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);margin-bottom:0.6rem">Transfer to family or entity</div>
         <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">The lease is fully transferable to a family member or business entity, subject to the landowner's agreement — standard in Bali and typically straightforward.</p>
       </div>
-      <div>
-        <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">③</div>
+      <div class="exit-col">
+        <div class="exit-num" style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:300;color:var(--sage);line-height:1;margin-bottom:1rem">③</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--charcoal);margin-bottom:0.6rem">Collect income for the full term</div>
         <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">At current returns, most investors recover their capital within 6–7 years. The remaining 18–23 years of the lease term is pure income — no capital at risk.</p>
       </div>
@@ -2699,23 +2802,23 @@ footer{
         <p class="section-body">We believe every investor deserves a straight answer. Here are the real risks — and how we address each one.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:0">
-        <div style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
+        <div class="risk-row" style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
           <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.4rem">Construction delays</div>
           <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">Building in Bali takes longer than in Europe. We build conservative timelines and communicate every setback immediately. Milestone-based payments mean you never pay ahead of verified progress.</p>
         </div>
-        <div style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
+        <div class="risk-row" style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
           <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.4rem">Currency fluctuation</div>
           <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">Villa income is in USD and IDR. If you hold euros, exchange rate movements affect your real return. We can't control this — but we show you historical data so you can model it yourself.</p>
         </div>
-        <div style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
+        <div class="risk-row" style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
           <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.4rem">Occupancy risk</div>
           <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">If Bali tourism slows, occupancy drops. Our villas are Airbnb-optimised with dynamic pricing — but we won't guarantee numbers we can't control. We show you real data from delivered projects instead.</p>
         </div>
-        <div style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
+        <div class="risk-row" style="padding:1.4rem 0;border-bottom:1px solid var(--border-light)">
           <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.4rem">Legal and title risk</div>
           <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">Leasehold in Indonesia carries legal nuance. We use independent PPAT notaries, land contracts go directly between you and the landowner, and we actively encourage independent legal advice before signing.</p>
         </div>
-        <div style="padding:1.4rem 0">
+        <div class="risk-row" style="padding:1.4rem 0">
           <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--charcoal);margin-bottom:0.4rem">Developer risk</div>
           <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">You are trusting us to build what we promise. Our answer: 25+ villas delivered, independent construction oversight, 24/7 live CCTV access, weekly reports, and a founder who has rebuilt from the consequences of broken trust. We don't ask you to trust us blindly — we give you the tools to verify everything yourself.</p>
         </div>
@@ -2931,6 +3034,31 @@ function animateTagline(){
   }).join('');
 }
 window.addEventListener('load', animateTagline);
+
+
+// Extra reveals for lower sections
+function revealExtras(){
+  // Exit columns
+  document.querySelectorAll('.exit-col').forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight * 0.88){
+      el.classList.add('visible');
+    }
+  });
+  // Risk image
+  document.querySelectorAll('.risk-img-wrap').forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight * 0.88){
+      el.classList.add('visible');
+    }
+  });
+  // Mood texts
+  document.querySelectorAll('.mood-text').forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight * 0.88){
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealExtras, {passive:true});
+window.addEventListener('load', revealExtras);
 
 // ── SCROLL REVEAL ──
 function revealOnScroll(){

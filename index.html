@@ -1670,17 +1670,19 @@ footer{
 /* ── STORY SECTION REDESIGN ── */
 .story-section{
   background:var(--cream);
+  display:grid;
+  grid-template-columns:1fr 1.6fr;
+  min-height:600px;
 }
 .story-img-wrap{
   position:relative;
-  width:100%;
-  height:320px;
   overflow:hidden;
+  background:#c8bba8;
 }
 .story-img-bg{
   position:absolute;inset:0;
-  background:url("https://raw.githubusercontent.com/dariuschzadeh-byte/kalani-website/main/Founder%20Image.jpg") center 35%/50% auto no-repeat;
-  background-color:#1a1714;
+  background:url("https://raw.githubusercontent.com/dariuschzadeh-byte/kalani-website/main/Founder%20Image.jpg") center center/contain no-repeat;
+  background-color:#c8bba8;
 }
 .story-img-caption{
   position:absolute;
@@ -1700,10 +1702,36 @@ footer{
 }
 .story-content-row{
   display:grid;
-  grid-template-columns:1fr 220px;
-  gap:3rem;
+  grid-template-columns:1fr 200px;
+  gap:2.5rem;
   padding:3.5rem 3.5rem;
   align-items:start;
+}
+.story-img-col{
+  position:relative;
+  overflow:hidden;
+  background:#c8bba8;
+}
+.story-img-col-bg{
+  position:absolute;inset:0;
+  background:url("https://raw.githubusercontent.com/dariuschzadeh-byte/kalani-website/main/Founder%20Image.jpg") center center/contain no-repeat;
+  background-color:#d4c8b8;
+}
+.story-img-col-caption{
+  position:absolute;top:1.2rem;left:1.2rem;
+}
+.story-img-col-caption .story-founder-name{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:400;
+  color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.7);
+  display:block;
+}
+.story-img-col-caption .story-founder-role{
+  font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);
+  text-shadow:0 2px 6px rgba(0,0,0,0.7);
+  display:block;margin-top:0.15rem;
 }
 .story-facts-col{
   padding-top:0.5rem;
@@ -1729,16 +1757,21 @@ footer{
   display:block;margin-top:0.3rem;
 }
 
-/* MOBILE: keep original layout */
+/* MOBILE */
 @media(max-width:768px){
-  .story-section{ display:block }
+  .story-section{
+    display:block !important;
+    grid-template-columns:1fr !important;
+  }
   .story-img-wrap{
-    height:110vw;
-    min-height:360px;
-    max-height:440px;
+    height:100vw;
+    min-height:320px;
+    max-height:400px;
   }
   .story-img-bg{
-    background-position:center 45% !important;
+    background-size:contain !important;
+    background-position:center center !important;
+    background-color:#c8bba8 !important;
   }
   .story-img-caption{
     top:0.8rem;right:0.8rem;left:auto;
@@ -2266,22 +2299,28 @@ footer{
 
   <!-- CONTENT ROW -->
   <div class="story-content-row">
+    <div class="story-img-col">
+      <div class="story-img-col-bg"></div>
+      <div class="story-img-col-caption">
+        <span class="story-founder-name">Dariusch Zadeh</span>
+        <span class="story-founder-role">Founder · Kalani Real Estate</span>
+      </div>
+    </div>
     <div class="story-content">
       <div class="eyebrow"><span class="eyebrow-line"></span>The Story</div>
       <h2 class="section-title">Built on mistakes.<br><em>Earned</em> by experience.</h2>
       <p class="story-text">I came to Bali from Germany during COVID. What started as a digital nomad adventure turned into five years on the island — building, learning, and putting down real roots. I started renting empty villas, renovating them, and listing them on Airbnb. It worked. So I decided to build — with a personal loan, no construction experience, and no mentor. I trusted the wrong people. I signed contracts I didn't fully understand. A business partner disappeared with 150,000€ of investor money — money that friends and family had trusted me with. I had to look them in the eye and explain what had happened.</p>
       <div class="story-pull">"I paid the price for this knowledge. You benefit from it."</div>
       <p class="story-text">I didn't walk away. I finished every project. I paid back every investor. And I made a decision: to build something where transparency isn't a marketing word — it's the foundation. The four-eyes principle, live CCTV, weekly reports, direct land contracts — none of this is coincidence. It's the direct result of learning the hardest possible way. After five years in Bali, what I want more than anything is to make sure no investor who works with me ever has to go through what my early investors did.</p>
-    </div>
-
-    <div class="story-facts-col">
-      <div class="story-facts">
+      <div class="story-facts" style="margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:none">
         <div class="sf"><strong data-target="3" data-suffix="+" data-prefix="">0</strong><span>Years in market</span></div>
         <div class="sf"><strong data-target="25" data-suffix="+" data-prefix="">0</strong><span>Villas built</span></div>
         <div class="sf"><strong data-target="150" data-suffix="k" data-prefix="€">0</strong><span>Lost learning</span></div>
         <div class="sf"><strong data-target="9" data-suffix="">0</strong><span>Villas under construction</span></div>
       </div>
     </div>
+
+
   </div>
 
 </section>

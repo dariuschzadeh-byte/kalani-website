@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalani — Bali Villa Developer</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon_64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -803,7 +807,8 @@ input[type="range"]::-webkit-slider-thumb{
 .story{
   display:grid;
   grid-template-columns:1fr 1fr;
-  min-height:80vh;
+  height:100vh;
+  max-height:860px;
 }
 .story-visual{
   position:relative;
@@ -837,27 +842,28 @@ input[type="range"]::-webkit-slider-thumb{
   color:var(--sage);display:block;margin-top:0.2rem;
 }
 .story-content{
-  padding:7rem 4.5rem;
+  padding:3rem 4rem;
   display:flex;flex-direction:column;justify-content:center;
   background:var(--cream);
+  overflow:hidden;
 }
 .story-pull{
   font-family:'Playfair Display',serif;
-  font-size:1.3rem;font-weight:300;font-style:italic;
-  color:var(--charcoal);line-height:1.5;
+  font-size:1.1rem;font-weight:300;font-style:italic;
+  color:var(--charcoal);line-height:1.4;
   border-left:2px solid var(--sage);
-  padding-left:1.5rem;
-  margin:2rem 0;
+  padding-left:1.2rem;
+  margin:1.2rem 0;
 }
-.story-text{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+.story-text{font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:0.7rem}
 .story-facts{
   display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-  margin-top:3rem;border-top:1px solid var(--border-light);
+  margin-top:1.5rem;border-top:1px solid var(--border-light);
 }
 .sf{
-  padding:1.5rem 0;
+  padding:1rem 0;
   border-right:none;
-  padding-right:1.5rem;margin-right:1.5rem;
+  padding-right:1.2rem;margin-right:1.2rem;
 }
 .sf:last-child{border-right:none;padding-right:0;margin-right:0}
 .sf strong{
@@ -1248,7 +1254,7 @@ footer{
   .story-visual{min-height:420px;}
   .story-photo-bg{background-size:cover !important;background-position:center 20% !important;}
   .story-content{padding:2.5rem 1.2rem}
-  .story-content .section-title{font-size:1.8rem}
+  .story-content .section-title{font-size:1.6rem}
   .story-text{font-size:0.88rem}
   .story-pull{font-size:1.1rem;padding-left:1rem}
   .story-facts{grid-template-columns:1fr 1fr;gap:0}

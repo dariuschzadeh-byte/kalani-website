@@ -1359,17 +1359,17 @@ footer{
 /* Scroll reveal base */
 .reveal{
   opacity:0;
-  transform:translateY(28px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
+  transform:translateY(20px);
+  transition:opacity 1s cubic-bezier(0.25,0.1,0.25,1), transform 1s cubic-bezier(0.25,0.1,0.25,1);
 }
 .reveal.visible{
   opacity:1;
   transform:translateY(0);
 }
-.reveal-delay-1{ transition-delay:0.1s }
-.reveal-delay-2{ transition-delay:0.2s }
-.reveal-delay-3{ transition-delay:0.3s }
-.reveal-delay-4{ transition-delay:0.4s }
+.reveal-delay-1{ transition-delay:0.15s }
+.reveal-delay-2{ transition-delay:0.3s }
+.reveal-delay-3{ transition-delay:0.45s }
+.reveal-delay-4{ transition-delay:0.6s }
 
 /* Nav link underline slide */
 .nav-links a{
@@ -1381,13 +1381,13 @@ footer{
   bottom:-2px;left:0;
   width:0;height:1px;
   background:var(--sage);
-  transition:width 0.25s ease;
+  transition:width 0.5s cubic-bezier(0.25,0.1,0.25,1);
 }
 .nav-links a:hover::after{ width:100% }
 
 /* Project cards – refined lift */
 .proj-card{
-  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+  transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1), box-shadow 0.6s ease;
 }
 .proj-card:hover{
   transform:translateY(-6px);
@@ -1396,16 +1396,16 @@ footer{
 
 /* Project card image zoom on hover */
 .proj-img-bg{
-  transition:transform 0.5s ease;
+  transition:transform 0.9s cubic-bezier(0.25,0.1,0.25,1);
 }
 .proj-card:hover .proj-img-bg{
-  transform:scale(1.04);
+  transform:scale(1.03);
 }
 
 /* Feature items – sage left border on hover */
 .feature{
   position:relative;
-  transition:padding-left 0.25s ease;
+  transition:padding-left 0.5s cubic-bezier(0.25,0.1,0.25,1);
 }
 .feature::before{
   content:'';
@@ -1415,24 +1415,24 @@ footer{
   background:var(--sage);
   transform:scaleY(0);
   transform-origin:bottom;
-  transition:transform 0.3s ease;
+  transition:transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
 }
 .feature:hover::before{ transform:scaleY(1) }
 .feature:hover{ padding-left:0.8rem }
 
 /* Buttons – scale + smooth */
 .btn-pill{
-  transition:background 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+  transition:background 0.4s ease, transform 0.5s cubic-bezier(0.25,0.1,0.25,1), box-shadow 0.5s ease;
 }
 .btn-pill:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 8px 24px rgba(44,40,37,0.12);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(44,40,37,0.1);
 }
-.btn-pill:active{ transform:scale(0.98) }
+.btn-pill:active{ transform:scale(0.99) }
 
 /* Testimonial cards */
 .testi-card{
-  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+  transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1), box-shadow 0.6s ease;
 }
 .testi-card:hover{
   transform:translateY(-6px);
@@ -1441,11 +1441,11 @@ footer{
 
 /* Legal cards */
 .legal-card{
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  transition:transform 0.5s ease, box-shadow 0.5s ease;
 }
 .legal-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 32px rgba(44,40,37,0.08);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(44,40,37,0.06);
 }
 
 /* Why stats */
@@ -1494,8 +1494,9 @@ footer{
   transition:transform 0.2s ease, box-shadow 0.2s ease;
 }
 .proc-step:hover .proc-dot{
-  transform:scale(1.15);
-  box-shadow:0 0 0 6px rgba(125,155,118,0.15);
+  transform:scale(1.08);
+  box-shadow:0 0 0 8px rgba(125,155,118,0.08);
+  transition:transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* Sold card hover */
@@ -1840,11 +1841,11 @@ footer{
   border:1px solid var(--border-light);
   border-radius:12px;
   overflow:hidden;
-  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;
+  transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1), box-shadow 0.6s ease;
 }
 .proj-premium-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(44,40,37,0.1);
+  transform:translateY(-3px);
+  box-shadow:0 16px 36px rgba(44,40,37,0.08);
 }
 .proj-premium-img{
   position:relative;
@@ -2012,7 +2013,7 @@ footer{
 
 /* Risk rows – subtle left highlight */
 .risk-row{
-  transition:padding-left 0.25s ease,background 0.25s ease;
+  transition:padding-left 0.5s ease,background 0.5s ease;
   border-radius:4px;
 }
 .risk-row:hover{
@@ -2022,10 +2023,10 @@ footer{
 
 /* FAQ hover */
 .faq-q{
-  transition:padding-left 0.2s ease;
+  transition:padding-left 0.4s ease;
 }
 .faq-q:hover{
-  padding-left:0.4rem;
+  padding-left:0.3rem;
 }
 
 /* Day in life images */
@@ -2041,8 +2042,8 @@ footer{
 /* Scroll reveal for exit strategy columns */
 .exit-col{
   opacity:0;
-  transform:translateY(20px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
+  transform:translateY(16px);
+  transition:opacity 1s cubic-bezier(0.25,0.1,0.25,1), transform 1s cubic-bezier(0.25,0.1,0.25,1);
 }
 .exit-col.visible{
   opacity:1;
@@ -2092,7 +2093,7 @@ footer{
 
 /* Testimonials subtle scale */
 .testi-card{
-  transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;
+  transition:transform 0.6s cubic-bezier(0.25,0.1,0.25,1), box-shadow 0.6s ease;
 }
 .testi-card:hover{
   transform:translateY(-4px);
@@ -2155,6 +2156,50 @@ footer{
 }
 @media(max-width:480px){
   .track-slide{ min-width:80vw }
+}
+
+
+/* ── LEGAL ACCORDION ── */
+.legal{ padding:6rem 3.5rem; background:var(--linen); }
+.legal-row{
+  border-bottom:1px solid var(--border-light);
+}
+.legal-row-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 0;
+  background:none;border:none;cursor:pointer;
+  text-align:left;
+  transition:opacity 0.3s ease;
+}
+.legal-row-btn:hover{ opacity:0.7 }
+.legal-row-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:300;color:var(--charcoal);
+}
+.legal-row-icon{
+  font-size:1.2rem;color:var(--taupe);flex-shrink:0;
+  transition:transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
+}
+.legal-row-icon.open{ transform:rotate(45deg) }
+.legal-row-body{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.5s cubic-bezier(0.25,0.1,0.25,1);
+}
+.legal-row-body p{
+  font-size:0.82rem;color:var(--muted);line-height:1.8;
+  padding-bottom:1.2rem;
+}
+
+
+@media(max-width:768px){
+  /* Testimonials */
+  .testimonials > div > div:last-child{ grid-template-columns:1fr !important; gap:2rem !important; }
+  /* Legal */
+  .legal > div > div { grid-template-columns:1fr !important; gap:2rem !important; }
+  .legal{ padding:2.5rem 1.2rem !important }
+  /* Payment */
+  section[id="payment"] > div > div { grid-template-columns:1fr !important; gap:2rem !important; }
+  section[id="payment"]{ padding:2.5rem 1.2rem !important }
 }
 
 </style>
@@ -2350,6 +2395,18 @@ footer{
     </div>
   </div>
 </section>
+
+
+<!-- VISUAL BREAKER -->
+<div style="width:100%;height:55vh;min-height:380px;max-height:520px;overflow:hidden;position:relative;">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fit=crop') center 40%/cover no-repeat;filter:brightness(0.75) sepia(0.1)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.15) 0%,rgba(26,23,20,0.45) 100%)"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+    <p class="mood-text" style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;font-style:italic;color:var(--cream);text-align:center;text-shadow:0 2px 20px rgba(0,0,0,0.4);max-width:640px;padding:0 2rem;line-height:1.4">The island that built our reputation.<br>The market we know better than anyone.</p>
+    <div style="width:40px;height:1px;background:rgba(250,248,245,0.4);margin-top:0.5rem"></div>
+    <p style="font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,248,245,0.55)">Bali, Indonesia</p>
+  </div>
+</div>
 
 <!-- STORY -->
 <section id="story">
@@ -2620,6 +2677,78 @@ footer{
 </section>
 
 
+<!-- PAYMENT PLAN -->
+<section style="padding:6rem 3.5rem;background:var(--cream)" id="payment">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-line"></span>Payment Plan</div>
+        <h2 class="section-title">Five steps.<br><em>Milestone-based.</em></h2>
+        <p class="section-body">You never pay ahead of verified progress. Each payment is triggered by a confirmed construction milestone — not by a calendar date.</p>
+      </div>
+      <div style="position:relative;padding-left:2rem">
+        <!-- Timeline line -->
+        <div style="position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--sage),var(--taupe))"></div>
+
+        <div class="pay-step" style="display:flex;gap:1.5rem;padding-bottom:2rem;position:relative">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--sage);border:2px solid var(--cream);flex-shrink:0;margin-top:3px;position:relative;z-index:1"></div>
+          <div>
+            <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.3rem">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal)">Reservation Fee</span>
+              <span style="font-size:0.72rem;letter-spacing:0.1em;color:var(--sage-dark);font-weight:500">10%</span>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Upon signing the presale agreement. Secures your villa and locks in the agreed price.</p>
+          </div>
+        </div>
+
+        <div class="pay-step" style="display:flex;gap:1.5rem;padding-bottom:2rem;position:relative">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--greige);border:2px solid var(--cream);flex-shrink:0;margin-top:3px;position:relative;z-index:1"></div>
+          <div>
+            <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.3rem">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal)">Groundworks & Foundation</span>
+              <span style="font-size:0.72rem;letter-spacing:0.1em;color:var(--muted);font-weight:500">25%</span>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Once site development begins. Covers land clearing, excavation, foundation and retaining walls.</p>
+          </div>
+        </div>
+
+        <div class="pay-step" style="display:flex;gap:1.5rem;padding-bottom:2rem;position:relative">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--greige);border:2px solid var(--cream);flex-shrink:0;margin-top:3px;position:relative;z-index:1"></div>
+          <div>
+            <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.3rem">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal)">Structure Completion</span>
+              <span style="font-size:0.72rem;letter-spacing:0.1em;color:var(--muted);font-weight:500">30%</span>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Completion of main structure. Framing, roofing, structural walls and concrete.</p>
+          </div>
+        </div>
+
+        <div class="pay-step" style="display:flex;gap:1.5rem;padding-bottom:2rem;position:relative">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--greige);border:2px solid var(--cream);flex-shrink:0;margin-top:3px;position:relative;z-index:1"></div>
+          <div>
+            <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.3rem">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal)">Interior & Finishing</span>
+              <span style="font-size:0.72rem;letter-spacing:0.1em;color:var(--muted);font-weight:500">30%</span>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Start of interior work. Flooring, painting, windows, doors, lighting, pool and landscaping.</p>
+          </div>
+        </div>
+
+        <div class="pay-step" style="display:flex;gap:1.5rem;position:relative">
+          <div style="width:14px;height:14px;border-radius:50%;background:var(--sage-dark);border:2px solid var(--cream);flex-shrink:0;margin-top:3px;position:relative;z-index:1"></div>
+          <div>
+            <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.3rem">
+              <span style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal)">Handover & Retention</span>
+              <span style="font-size:0.72rem;letter-spacing:0.1em;color:var(--sage-dark);font-weight:500">5%</span>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Four weeks after handover. Final snagging, keys, and successful SLF building permit application.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- DAY IN THE LIFE -->
 <section style="padding:5rem 3.5rem;background:var(--linen)">
   <div style="text-align:center;margin-bottom:3rem">
@@ -2770,46 +2899,49 @@ footer{
 
 
 <!-- TESTIMONIALS -->
-<section class="testimonials" id="reviews">
-  <div class="testi-header">
-    <div class="eyebrow">Investor Stories</div>
-    <h2 class="section-title">Real investors.<br><em>Real numbers.</em></h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"He told me the horror stories himself. That kind of honesty is rare — and it's exactly why I invested."</p>
-      <div class="testi-footer">
-        <div class="testi-avatar">MK</div>
+<section class="testimonials" id="testimonials">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:3.5rem">
+      <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Investor Stories</div>
+      <h2 class="section-title">From the people <em>who invested.</em></h2>
+    </div>
+
+    <!-- Featured quote -->
+    <div class="testi-featured reveal" style="margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border-light)">
+      <p style="font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;font-style:italic;color:var(--charcoal);line-height:1.6;margin-bottom:1.5rem">"He told me the exact risks upfront. That was the moment I decided to invest. Every developer I'd spoken to before only told me the upside."</p>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div style="width:40px;height:1px;background:var(--sage)"></div>
         <div>
-          <span class="testi-name">Markus K. 🇩🇪</span>
-          <span class="testi-meta">Murlan · $160k invested</span>
+          <div style="font-size:0.82rem;font-weight:500;color:var(--charcoal)">Thomas K.</div>
+          <div style="font-size:0.72rem;color:var(--muted)">Hamburg, Germany · Solara investor</div>
         </div>
-        <div class="testi-roi"><strong>17.2%</strong><span>Net ROI</span></div>
+        <div style="margin-left:auto;display:flex;gap:2px">
+          <span style="color:var(--sage);font-size:0.7rem">★★★★★</span>
+        </div>
       </div>
     </div>
-    <div class="testi-card reveal reveal-delay-1">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Monthly reports, honest updates when something slipped. I never felt left in the dark. The villa earns while I work in London."</p>
-      <div class="testi-footer">
-        <div class="testi-avatar">SL</div>
-        <div>
-          <span class="testi-name">Sophie L. 🇬🇧</span>
-          <span class="testi-meta">Nungalan · $155k invested</span>
+
+    <!-- Two secondary quotes – no boxes, just text -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem">
+      <div class="reveal reveal-delay-1">
+        <p style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:300;font-style:italic;color:var(--charcoal);line-height:1.7;margin-bottom:1.2rem">"Monthly reports, live CCTV access, weekly updates — I felt informed the entire time. Never had to chase for information."</p>
+        <div style="display:flex;align-items:center;gap:0.8rem">
+          <div style="width:24px;height:1px;background:var(--sage)"></div>
+          <div>
+            <div style="font-size:0.78rem;font-weight:500;color:var(--charcoal)">Markus R.</div>
+            <div style="font-size:0.68rem;color:var(--muted)">Munich · Villa Maihan</div>
+          </div>
         </div>
-        <div class="testi-roi"><strong>$2,650</strong><span>Avg/month net</span></div>
       </div>
-    </div>
-    <div class="testi-card reveal reveal-delay-2">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"The customisation options were a big deal. I could choose the tile, the furniture, even tweak the layout. It feels like mine."</p>
-      <div class="testi-footer">
-        <div class="testi-avatar">TD</div>
-        <div>
-          <span class="testi-name">Thomas D. 🇨🇭</span>
-          <span class="testi-meta">Murlan · $168k invested</span>
+      <div class="reveal reveal-delay-2">
+        <p style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:300;font-style:italic;color:var(--charcoal);line-height:1.7;margin-bottom:1.2rem">"The customisation options made it feel like my villa, not just another rental unit. And the ROI has been exactly what was projected."</p>
+        <div style="display:flex;align-items:center;gap:0.8rem">
+          <div style="width:24px;height:1px;background:var(--sage)"></div>
+          <div>
+            <div style="font-size:0.78rem;font-weight:500;color:var(--charcoal)">Sandra M.</div>
+            <div style="font-size:0.68rem;color:var(--muted)">Zürich · Rahime Cubes</div>
+          </div>
         </div>
-        <div class="testi-roi"><strong>18.5%</strong><span>Net ROI</span></div>
       </div>
     </div>
   </div>
@@ -2817,31 +2949,42 @@ footer{
 
 <!-- LEGAL -->
 <section class="legal" id="legal">
-  <div class="legal-wrap">
-    <div>
-      <div class="eyebrow"><span class="eyebrow-line"></span>Legal Structures</div>
-      <h2 class="section-title">Can foreigners<br>own property<br>in Bali?<br><em>Yes.</em></h2>
-      <p class="section-body" style="margin-top:1rem">Two legal paths. Both transparent. No nominee structures — ever.</p>
-      <a href="#booking" class="btn-pill btn-outline-dark" style="margin-top:2rem;display:inline-block">Ask a Legal Question →</a>
-    </div>
-    <div class="legal-cards">
-      <div class="legal-card">
-        <div class="legal-tag">Most Common · 95% of Buyers</div>
-        <div class="legal-card-title">Leasehold (Hak Sewa)</div>
-        <p class="legal-card-text">Lease the land for 25–30 years with a secured extension option. You can rent, sell, or pass on the villa during that period. Fully legal, independently notarised.</p>
-        <div class="legal-term">→ Up to 80 years total with extensions</div>
+  <div style="max-width:860px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-line"></span>Legal Structure</div>
+        <h2 class="section-title">How ownership <em>works.</em></h2>
+        <p class="section-body">Foreign nationals have three legal pathways to owning property in Bali. Each has different implications for tax, control, and transferability.</p>
+        <p class="section-body" style="margin-top:0.8rem;font-size:0.8rem">We work with independent PPAT notaries and licensed legal partners to ensure every transaction is fully compliant. We always recommend independent legal review before signing.</p>
       </div>
-      <div class="legal-card" style="--sage:#B08D57">
-        <div class="legal-tag" style="color:var(--warm-gray);background:rgba(168,158,148,0.12)">For Larger Holdings</div>
-        <div class="legal-card-title">PT PMA Company Structure</div>
-        <p class="legal-card-text">Foreign-owned Indonesian company holds the property via HGB. Adds structure, separates liability, enables multiple holdings. Setup costs ~$3–5k. Recommended for investors holding several units.</p>
-        <div class="legal-term" style="color:var(--warm-gray)">→ 30 + extension periods = up to 80 years</div>
-      </div>
-      <div class="legal-card" style="background:var(--greige)">
-        <div class="legal-tag" style="color:var(--muted);background:rgba(44,40,37,0.07)">We Don't Offer This</div>
-        <div class="legal-card-title">Nominee Structures</div>
-        <p class="legal-card-text">Some developers use Indonesian citizens as nominees. This is technically illegal under Indonesian law and carries serious personal risk. Kalani does not use this structure and advises strongly against it.</p>
-        <div class="legal-term" style="color:var(--muted)">→ Not available through Kalani</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="legal-row">
+          <button class="legal-row-btn" onclick="toggleLegal(this)">
+            <span class="legal-row-title">Leasehold <span style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);margin-left:0.8rem">Recommended</span></span>
+            <span class="legal-row-icon">+</span>
+          </button>
+          <div class="legal-row-body">
+            <p>The most common structure for foreign buyers. You lease the land directly from the landowner for 25–30 years with a written extension clause. The land contract is signed directly between you and the landowner — no intermediary, no nominee. Clean, transparent, legally sound.</p>
+          </div>
+        </div>
+        <div class="legal-row">
+          <button class="legal-row-btn" onclick="toggleLegal(this)">
+            <span class="legal-row-title">PT PMA <span style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-left:0.8rem">For larger portfolios</span></span>
+            <span class="legal-row-icon">+</span>
+          </button>
+          <div class="legal-row-body">
+            <p>A foreign-owned Indonesian company (PT PMA) can hold property in its own name. More complex and costly to set up, but offers greater control and flexibility for investors building a larger portfolio. Best suited if you plan to own multiple properties or operate commercially at scale.</p>
+          </div>
+        </div>
+        <div class="legal-row">
+          <button class="legal-row-btn" onclick="toggleLegal(this)">
+            <span class="legal-row-title">Nominee Structure <span style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--taupe);margin-left:0.8rem">We don't use this</span></span>
+            <span class="legal-row-icon">+</span>
+          </button>
+          <div class="legal-row-body">
+            <p>Some developers use nominee arrangements where an Indonesian national holds the title on behalf of a foreigner. This is legally grey and carries significant risk — if the nominee relationship breaks down, you have limited legal recourse. We never use this structure and actively advise against it.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3094,6 +3237,20 @@ footer{
 
 
 
+
+function toggleLegal(btn){
+  var body = btn.nextElementSibling;
+  var icon = btn.querySelector('.legal-row-icon');
+  var isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+  // Close all
+  document.querySelectorAll('.legal-row-body').forEach(function(b){ b.style.maxHeight='0px'; });
+  document.querySelectorAll('.legal-row-icon').forEach(function(i){ i.classList.remove('open'); });
+  if(!isOpen){
+    body.style.maxHeight = body.scrollHeight + 'px';
+    icon.classList.add('open');
+  }
+}
+
 // ── TRACK RECORD SLIDER ──
 var trackPos = 0;
 function slideTrack(dir){
@@ -3105,7 +3262,7 @@ function slideTrack(dir){
   if(trackPos < 0) trackPos = 0;
   if(trackPos > total - visible) trackPos = total - visible;
   slider.style.transform = 'translateX(-' + (trackPos * slideW) + 'px)';
-  slider.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+  slider.style.transition = 'transform 0.7s cubic-bezier(0.25,0.1,0.25,1)';
 }
 
 // ── MOBILE ANIMATIONS JS ──

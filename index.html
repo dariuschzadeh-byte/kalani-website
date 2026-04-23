@@ -2202,6 +2202,177 @@ footer{
   section[id="payment"]{ padding:2.5rem 1.2rem !important }
 }
 
+
+/* ── SOLD STRIPS ── */
+.sold-strip{
+  display:grid;
+  grid-template-columns:48px 1fr 1fr 1fr auto;
+  align-items:center;
+  gap:1.5rem;
+  padding:0.9rem 0;
+  border-bottom:1px solid var(--border-light);
+  transition:opacity 0.4s ease;
+}
+.sold-strip:hover{ opacity:0.7 }
+.sold-strip:last-child{ border-bottom:none }
+.sold-strip-img{
+  width:48px;height:48px;
+  border-radius:6px;
+  flex-shrink:0;
+}
+.sold-strip-name{
+  font-family:'Playfair Display',serif;
+  font-size:0.95rem;font-weight:300;color:var(--charcoal);
+}
+.sold-strip-loc{
+  font-size:0.75rem;color:var(--muted);
+}
+.sold-strip-units{
+  font-size:0.72rem;color:var(--muted);
+}
+.sold-strip-tag{
+  font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--taupe);white-space:nowrap;
+}
+@media(max-width:768px){
+  .sold-strip{ grid-template-columns:40px 1fr auto; gap:0.8rem }
+  .sold-strip-loc,.sold-strip-units{ display:none }
+}
+
+
+@media(max-width:768px){
+
+  /* ── EXIT STRATEGY mobile ── */
+  section[id="exit"] > div > div{
+    grid-template-columns:1fr !important;
+    gap:2rem !important;
+  }
+  section[id="exit"] > div > div > div:last-child{
+    grid-template-columns:1fr !important;
+    gap:1.5rem !important;
+  }
+  section[id="exit"]{padding:3rem 1.2rem !important}
+  .exit-col{ opacity:1 !important; transform:none !important }
+
+  /* ── RISK SECTION mobile ── */
+  section[id="risks"] > div > div{
+    grid-template-columns:1fr !important;
+    gap:0 !important;
+  }
+  section[id="risks"]{padding:3rem 1.2rem !important}
+  .risk-img-wrap{display:none !important}
+  .risk-row{ opacity:1 !important; transform:none !important }
+
+  /* ── ROI CALCULATOR mobile – compact ── */
+  .calc-section{padding:2rem 1.2rem !important}
+  .calc-header{margin-bottom:1.5rem !important}
+  .calc-header .section-title{font-size:1.5rem !important}
+  .calc-wrap{
+    grid-template-columns:1fr !important;
+    gap:1.5rem !important;
+    padding-top:1.5rem !important;
+  }
+  .calc-field{margin-bottom:0.8rem !important}
+  .calc-field-label{font-size:0.7rem !important}
+  .calc-inputs > div:last-child{padding:0.6rem 0.8rem !important}
+  .calc-metric{padding:0.5rem 0 !important}
+  .calc-metric-val{font-size:1.3rem !important}
+  .calc-output-title{font-size:0.6rem !important}
+
+  /* ── DAY IN LIFE mobile – 2x2 grid ── */
+  section[style*="Day in the Life"] > div > div:last-child,
+  section[style*="day to day"] > div > div:last-child{
+    grid-template-columns:1fr 1fr !important;
+    gap:0.4rem !important;
+  }
+  /* Target the ditl image grid */
+  .ditl-grid-mobile{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  /* ── TRACK RECORD mobile – swipeable ── */
+  .proj-sold-section{padding-top:1.5rem !important}
+  .sold-strip-list{
+    display:flex !important;
+    overflow-x:auto !important;
+    scroll-snap-type:x mandatory !important;
+    -webkit-overflow-scrolling:touch !important;
+    gap:0.6rem !important;
+    padding-bottom:0.5rem !important;
+    scrollbar-width:none !important;
+  }
+  .sold-strip-list::-webkit-scrollbar{display:none !important}
+  .sold-strip{
+    display:block !important;
+    min-width:65vw !important;
+    flex-shrink:0 !important;
+    scroll-snap-align:start !important;
+    border:1px solid var(--border-light) !important;
+    border-bottom:1px solid var(--border-light) !important;
+    border-radius:10px !important;
+    overflow:hidden !important;
+    padding:0 !important;
+  }
+  .sold-strip-img{
+    width:100% !important;
+    height:120px !important;
+    border-radius:0 !important;
+  }
+  .sold-strip-name{
+    padding:0.7rem 0.8rem 0.2rem !important;
+    font-size:0.88rem !important;
+  }
+  .sold-strip-loc{
+    display:block !important;
+    padding:0 0.8rem !important;
+    font-size:0.7rem !important;
+  }
+  .sold-strip-units{
+    display:block !important;
+    padding:0.1rem 0.8rem 0.5rem !important;
+    font-size:0.65rem !important;
+  }
+  .sold-strip-tag{
+    display:none !important;
+  }
+
+  /* ── VIDEO CLIPS mobile ── */
+  section[id="videos"] > div > div:last-child{
+    gap:0.4rem !important;
+  }
+  section[id="videos"] > div > div:last-child > div{
+    height:64px !important;
+  }
+  section[id="videos"]{padding:2.5rem 1.2rem !important}
+  section[id="videos"] > div > div:nth-child(2){
+    aspect-ratio:16/9;
+    height:auto !important;
+  }
+
+  /* ── STORY mobile fixes ── */
+  .story-pic-label{
+    top:0.6rem !important;
+    left:auto !important;
+    right:0.6rem !important;
+    bottom:auto !important;
+    text-align:right !important;
+    background:rgba(0,0,0,0.25) !important;
+    backdrop-filter:blur(4px) !important;
+    border-radius:4px !important;
+    padding:0.3rem 0.6rem !important;
+  }
+  .story-pic-name{
+    font-size:0.7rem !important;
+  }
+  .story-pic-role{
+    font-size:0.5rem !important;
+  }
+
+  /* ── PROCESS mobile ── */
+  .process{padding:2.5rem 1.2rem !important}
+
+}
+
 </style>
 </head>
 <body>
@@ -2286,14 +2457,7 @@ footer{
         Nungalan · Balangan · Canggu
       </div>
     </div>
-    <div class="why-img-overlay">
-      <div class="why-caption-card">
-        <div class="caption-icon">✦</div>
-        <div class="caption-text">
-          <strong>Airbnb-optimised from day one</strong>
-          Designed for bookings, not just beauty
-        </div>
-      </div>
+    </div>
     </div>
   </div>
   <div class="why-content">
@@ -2396,18 +2560,6 @@ footer{
   </div>
 </section>
 
-
-<!-- VISUAL BREAKER -->
-<div style="width:100%;height:55vh;min-height:380px;max-height:520px;overflow:hidden;position:relative;">
-  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fit=crop') center 40%/cover no-repeat;filter:brightness(0.75) sepia(0.1)"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.15) 0%,rgba(26,23,20,0.45) 100%)"></div>
-  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
-    <p class="mood-text" style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;font-style:italic;color:var(--cream);text-align:center;text-shadow:0 2px 20px rgba(0,0,0,0.4);max-width:640px;padding:0 2rem;line-height:1.4">The island that built our reputation.<br>The market we know better than anyone.</p>
-    <div style="width:40px;height:1px;background:rgba(250,248,245,0.4);margin-top:0.5rem"></div>
-    <p style="font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,248,245,0.55)">Bali, Indonesia</p>
-  </div>
-</div>
-
 <!-- STORY -->
 <section id="story">
 <div class="story-wrap">
@@ -2459,48 +2611,46 @@ footer{
       <div style="position:absolute;top:1rem;left:1rem;background:rgba(250,248,245,0.1);backdrop-filter:blur(6px);border-radius:4px;padding:0.3rem 0.6rem;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.7)">[ Founder video — coming soon ]</div>
     </div>
 
-    <!-- 3 clip placeholders -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
-      <div class="reveal reveal-delay-1" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
-        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        <!-- 3 clip strips -->
+    <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.8rem">
+      <div class="reveal reveal-delay-1" style="position:relative;height:80px;border-radius:8px;overflow:hidden;background:#1a1714;cursor:pointer;display:flex;align-items:center">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.5;transition:opacity 0.6s ease" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.5'"></div>
+        <div style="position:relative;z-index:1;display:flex;align-items:center;gap:1.2rem;padding:0 1.5rem;width:100%">
+          <div style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(250,248,245,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <div style="text-align:center;padding:0 0.5rem">
-            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Construction Oversight</div>
-            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">On-site · 60 sec</div>
+          <div style="flex:1">
+            <div style="font-size:0.82rem;color:var(--cream);font-family:'Playfair Display',serif">Construction Oversight — On Site</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.5);margin-top:0.15rem">60 sec · Coming soon</div>
           </div>
+          <div style="font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.4)">Solara · Nungalan</div>
         </div>
-        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
       </div>
-
-      <div class="reveal reveal-delay-2" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
-        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+      <div class="reveal reveal-delay-2" style="position:relative;height:80px;border-radius:8px;overflow:hidden;background:#1a1714;cursor:pointer;display:flex;align-items:center">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.5;transition:opacity 0.6s ease" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.5'"></div>
+        <div style="position:relative;z-index:1;display:flex;align-items:center;gap:1.2rem;padding:0 1.5rem;width:100%">
+          <div style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(250,248,245,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <div style="text-align:center;padding:0 0.5rem">
-            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Property Management</div>
-            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">Desa Management · 60 sec</div>
+          <div style="flex:1">
+            <div style="font-size:0.82rem;color:var(--cream);font-family:'Playfair Display',serif">Property Management — Desa Management</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.5);margin-top:0.15rem">60 sec · Coming soon</div>
           </div>
+          <div style="font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.4)">Bali Operations</div>
         </div>
-        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
       </div>
-
-      <div class="reveal reveal-delay-3" style="position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#1a1714;cursor:pointer">
-        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.6;transition:opacity 0.3s ease" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.6'"></div>
-        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(250,248,245,0.15);border:1px solid rgba(250,248,245,0.35);display:flex;align-items:center;justify-content:center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+      <div class="reveal reveal-delay-3" style="position:relative;height:80px;border-radius:8px;overflow:hidden;background:#1a1714;cursor:pointer;display:flex;align-items:center">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:0.5;transition:opacity 0.6s ease" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.5'"></div>
+        <div style="position:relative;z-index:1;display:flex;align-items:center;gap:1.2rem;padding:0 1.5rem;width:100%">
+          <div style="width:32px;height:32px;border-radius:50%;border:1px solid rgba(250,248,245,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <div style="text-align:center;padding:0 0.5rem">
-            <div style="font-size:0.78rem;color:var(--cream);font-family:'Playfair Display',serif">Solara — Site Tour</div>
-            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.55);margin-top:0.2rem">Nungalan · Bali</div>
+          <div style="flex:1">
+            <div style="font-size:0.82rem;color:var(--cream);font-family:'Playfair Display',serif">Solara — Site Tour</div>
+            <div style="font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.5);margin-top:0.15rem">Nungalan · Bali</div>
           </div>
+          <div style="font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.4)">Coming soon</div>
         </div>
-        <div style="position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.1);border-radius:3px;padding:0.2rem 0.5rem;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Coming soon</div>
       </div>
     </div>
   </div>
@@ -2622,56 +2772,22 @@ footer{
   <div class="proj-sold-section">
     <div class="proj-sold-header">
       <div class="eyebrow" style="color:var(--warm-gray)"><span class="eyebrow-line" style="background:var(--warm-gray)"></span>Track Record — Sold Out</div>
-      <p style="font-size:0.82rem;color:var(--muted);max-width:380px">Every project we have launched has sold out. These are the projects that built our reputation.</p>
-    </div>
-
-    <!-- Slider wrapper -->
-    <div class="track-slider-wrap">
-      <button class="track-arrow track-arrow-left" onclick="slideTrack(-1)" aria-label="Previous">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="track-slider" id="trackSlider">
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Seminyak · Bali</div><div class="proj-name" style="font-size:1rem">Tulum Mila</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">2 of 2 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Canggu · Bali</div><div class="proj-name" style="font-size:1rem">Rahime Cubes</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">4 of 4 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Uluwatu · Bali</div><div class="proj-name" style="font-size:1rem">Luxury Huts</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">4 of 4 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Seminyak · Bali</div><div class="proj-name" style="font-size:1rem">Murlan Villas</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">3 of 3 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Canggu · Bali</div><div class="proj-name" style="font-size:1rem">Villa Kana</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">2 of 2 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Uluwatu · Bali</div><div class="proj-name" style="font-size:1rem">Villa Sekar</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">3 of 3 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Nungalan · Bali</div><div class="proj-name" style="font-size:1rem">Villa Aruna</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">4 of 4 units delivered</div></div>
-        </div>
-        <div class="track-slide">
-          <div class="sold-img" style="background:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80&auto=format&fit=crop') center/cover no-repeat"><div class="sold-overlay">SOLD OUT</div></div>
-          <div class="sold-body"><div class="proj-loc">Seminyak · Bali</div><div class="proj-name" style="font-size:1rem">Villa Danu</div><div style="font-size:0.72rem;color:var(--muted);margin-top:0.3rem">2 of 2 units delivered</div></div>
-        </div>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <span style="font-size:0.75rem;color:var(--muted)">25+ villas delivered since 2019</span>
+        <a href="#booking" style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;white-space:nowrap">Request Portfolio →</a>
       </div>
-      <button class="track-arrow track-arrow-right" onclick="slideTrack(1)" aria-label="Next">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
     </div>
 
-    <div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;border-top:1px solid var(--border-light)">
-      <span style="font-size:0.75rem;color:var(--muted)">25+ villas built and delivered across Bali since 2019 — <em style="color:var(--charcoal)">and counting.</em></span>
-      <a href="#booking" style="font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--charcoal);padding-bottom:1px;white-space:nowrap">Request Full Portfolio →</a>
+    <!-- Slim horizontal strips -->
+    <div class="sold-strip-list" style="display:flex;flex-direction:column;gap:0">
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Tulum Mila</div><div class="sold-strip-loc">Seminyak · Bali</div><div class="sold-strip-units">2 of 2 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Rahime Cubes</div><div class="sold-strip-loc">Canggu · Bali</div><div class="sold-strip-units">4 of 4 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1604999565976-8913ad2ddb37?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Luxury Huts</div><div class="sold-strip-loc">Uluwatu · Bali</div><div class="sold-strip-units">4 of 4 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Murlan Villas</div><div class="sold-strip-loc">Seminyak · Bali</div><div class="sold-strip-units">3 of 3 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Villa Kana</div><div class="sold-strip-loc">Canggu · Bali</div><div class="sold-strip-units">2 of 2 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Villa Sekar</div><div class="sold-strip-loc">Uluwatu · Bali</div><div class="sold-strip-units">3 of 3 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Villa Aruna</div><div class="sold-strip-loc">Nungalan · Bali</div><div class="sold-strip-units">4 of 4 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
+      <div class="sold-strip"><div class="sold-strip-img" style="background:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&q=80&auto=format&fit=crop') center/cover no-repeat"></div><div class="sold-strip-name">Villa Danu</div><div class="sold-strip-loc">Seminyak · Bali</div><div class="sold-strip-units">2 of 2 delivered</div><div class="sold-strip-tag">SOLD OUT</div></div>
     </div>
   </div>
 </section>
@@ -2750,44 +2866,45 @@ footer{
 </section>
 
 <!-- DAY IN THE LIFE -->
-<section style="padding:5rem 3.5rem;background:var(--linen)">
-  <div style="text-align:center;margin-bottom:3rem">
-    <div class="eyebrow" style="justify-content:center"><span class="eyebrow-line"></span>Your Investment, Day to Day</div>
-    <h2 class="section-title">What owning a <em>Kalani villa</em> feels like.</h2>
-    <p class="section-body" style="text-align:center;max-width:480px;margin:0.8rem auto 0">While you go about your life, your villa is working for you — guests arriving, income accumulating, weekly reports landing in your inbox.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem">
-    <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4">
-      <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(26,23,20,0.8) 0%,transparent 100%)">
-        <div style="font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,248,245,0.7);margin-bottom:0.2rem">Morning</div>
-        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--cream)">Your guest checks in</div>
+<section style="padding:4rem 3.5rem;background:var(--cream)">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-line"></span>Your Investment, Day to Day</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:300;color:var(--charcoal);margin:0.3rem 0 0">While you live your life, your villa works for you.</h3>
+      </div>
+      <a href="#booking" class="btn-pill btn-outline-dark" style="white-space:nowrap">Book a Call →</a>
+    </div>
+    <div class="ditl-grid-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem">
+      <div style="position:relative;border-radius:8px;overflow:hidden;height:140px">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80&auto=format&fit=crop') center/cover no-repeat;transition:transform 0.9s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem;background:linear-gradient(to top,rgba(26,23,20,0.75) 0%,transparent 100%)">
+          <div style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Morning</div>
+          <div style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--cream)">Guest checks in</div>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:8px;overflow:hidden;height:140px">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=400&q=80&auto=format&fit=crop') center/cover no-repeat;transition:transform 0.9s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem;background:linear-gradient(to top,rgba(26,23,20,0.75) 0%,transparent 100%)">
+          <div style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Afternoon</div>
+          <div style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--cream)">Your pool, their holiday</div>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:8px;overflow:hidden;height:140px">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&q=80&auto=format&fit=crop') center/cover no-repeat;transition:transform 0.9s ease" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem;background:linear-gradient(to top,rgba(26,23,20,0.75) 0%,transparent 100%)">
+          <div style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Evening</div>
+          <div style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--cream)">Bali does what Bali does</div>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:8px;overflow:hidden;height:140px">
+        <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80&auto=format&fit=crop') center/cover no-repeat;transition:transform 0.9s ease;filter:brightness(0.7)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem;background:linear-gradient(to top,rgba(26,23,20,0.75) 0%,transparent 100%)">
+          <div style="font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(250,248,245,0.6)">Monthly</div>
+          <div style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--cream)">Income in your account</div>
+        </div>
       </div>
     </div>
-    <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4">
-      <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(26,23,20,0.8) 0%,transparent 100%)">
-        <div style="font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,248,245,0.7);margin-bottom:0.2rem">Afternoon</div>
-        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--cream)">Your pool, their holiday</div>
-      </div>
-    </div>
-    <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4">
-      <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(26,23,20,0.8) 0%,transparent 100%)">
-        <div style="font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,248,245,0.7);margin-bottom:0.2rem">Evening</div>
-        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--cream)">Bali does what Bali does</div>
-      </div>
-    </div>
-    <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4">
-      <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80&auto=format&fit=crop') center/cover no-repeat;filter:brightness(0.7)"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(to top,rgba(26,23,20,0.8) 0%,transparent 100%)">
-        <div style="font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,248,245,0.7);margin-bottom:0.2rem">Monthly</div>
-        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--cream)">Income lands in your account</div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:2.5rem">
-    <a href="#booking" class="btn-pill btn-sage">Book a Free Call →</a>
   </div>
 </section>
 
@@ -2897,6 +3014,18 @@ footer{
 
 
 
+
+
+<!-- VISUAL BREAKER -->
+<div style="width:100%;height:55vh;min-height:380px;max-height:520px;overflow:hidden;position:relative;">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80&auto=format&fit=crop') center 40%/cover no-repeat;filter:brightness(0.75) sepia(0.1)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.15) 0%,rgba(26,23,20,0.45) 100%)"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem">
+    <p class="mood-text" style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;font-style:italic;color:var(--cream);text-align:center;text-shadow:0 2px 20px rgba(0,0,0,0.4);max-width:640px;padding:0 2rem;line-height:1.4">The island that built our reputation.<br>The market we know better than anyone.</p>
+    <div style="width:40px;height:1px;background:rgba(250,248,245,0.4);margin-top:0.5rem"></div>
+    <p style="font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(250,248,245,0.55)">Bali, Indonesia</p>
+  </div>
+</div>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
